@@ -10,69 +10,70 @@
     <link rel="stylesheet" href="../components/header/header.css" />
     <link rel="stylesheet" href="../components/header/header-media.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/media.css" />
   </head>
   <body>
     <div id="header-container"></div>
-    
-    <section class="login">
-      <div class="container">
-        <div class="login-content">
-          <div class="header">
-            <h1>Log In to Your Account</h1>
-            <p>Enter your detail below</p>
-          </div>
-
-          <form id="loginForm">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                class="form-control"
-                placeholder="example@gmail.com"
-                required
-              />
+    <main>
+      <section class="auth">
+        <div class="container">
+          <div class="auth-content">
+            <div class="header">
+              <h1>Log In to Your Account</h1>
+              <p>Enter your detail below</p>
             </div>
-
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                class="form-control"
-                placeholder="Enter your password"
-                required
-              />
+  
+            <form id="authForm">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="example@gmail.com"
+                  required
+                />
+              </div>
+  
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+  
+              <button type="submit" class="btn btn-auth">Sign in</button>
+            </form>
+  
+            <div class="forgot-password">
+              <a href="#">Forgot your password?</a>
             </div>
-
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-
-          <div class="forgot-password">
-            <a href="#">Forgot your password?</a>
-          </div>
-
-          <div class="divider">Or</div>
-
-          <button class="oauth-btn">
-            <img src="https://www.google.com/favicon.ico" alt="Google logo" />
-            Sign In with Google
-          </button>
-
-          <button class="oauth-btn">
-            <img src="https://github.com/favicon.ico" alt="GitHub logo" /> Sign
-            In with Github
-          </button>
-
-          <div class="signup">
-            Don't have an account? <a href="#">Sign Up Now!</a>
+  
+            <div class="divider">Or</div>
+  
+            <button class="oauth-btn">
+              <img src="https://www.google.com/favicon.ico" alt="Google logo" />
+              Sign In with Google
+            </button>
+  
+            <button class="oauth-btn">
+              <img src="https://github.com/favicon.ico" alt="GitHub logo" /> Sign
+              In with Github
+            </button>
+  
+            <div class="signup">
+              Don't have an account? <a href="../pages/signup.html">Sign Up Now!</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <script src="../js/header.js"></script>
   </body>

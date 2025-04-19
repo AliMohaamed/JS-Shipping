@@ -1,13 +1,13 @@
 /* Login Page */
 
-.login {
+.auth {
   margin-top: 193px;
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem 1.5rem;
-  .login-content {
+  .auth-content {
     background-color: var(--white-color);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -35,16 +35,18 @@
         label {
           display: block;
           margin-bottom: 0.8rem;
-          color: #374151;
-          font-size: 1.5rem;
+          color: var(--text-color);
+          font-size: 1.3rem !important;
         }
         .form-control {
+          
           width: 100%;
-          padding: 0.75rem 1rem;
+          padding: 1rem 1rem;
           border: 1px solid #e5e7eb;
           border-radius: 6px;
-          font-size: 1.5rem;
-          color: #374151;
+          font-size: 1.3rem;
+          color: var(--text-color);
+          background-color: var(--bg-search);
           transition: border-color 0.15s ease-in-out;
         }
         .form-control::placeholder {
@@ -56,32 +58,35 @@
           box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
         }
       }
+      
       .btn {
         display: block;
         width: 100%;
         padding: 0.85rem;
         border: none;
         border-radius: 6px;
-        font-size: 1rem;
+        font-size: 1.4rem !important;
         font-weight: 500;
         cursor: pointer;
         text-align: center;
         transition: background-color 0.15s ease-in-out;
       }
-      .btn-primary {
+      .btn-auth {
         background-color: var(--secondary-color);
-        color: white;
+        color: var(--white-color);
       }
-
-      .btn-primary:hover {
+      .btn-auth:hover {
         background-color: var(--primary-color);
+      }
+      .signup-btn{
+        margin-top: 2rem;
       }
     }
     .forgot-password {
       text-align: center;
       margin: 1.25rem 0;
       a {
-        color: #6b7280;
+        color: var(--text-color);
         text-decoration: none;
         font-size: 1.3rem;
       }
@@ -109,12 +114,12 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      padding: 0.75rem;
+      padding: 1rem ;
       margin-bottom: 0.85rem;
       border: 1px solid #e5e7eb;
       border-radius: 6px;
-      background-color: white;
-      color: var(--secondary-color);
+      background-color: var(--bg-search);
+      color: var(--text-color);
       font-size: 1.2rem;
       font-weight: 500;
       cursor: pointer;
@@ -126,30 +131,38 @@
     }
 
     .oauth-btn:hover {
-      background-color: var(--bg-search);
+      background-color: var(--background-color);
+      color: var(--secondary-color);
     }
-    .signup {
+    .signup,.login {
       text-align: center;
       margin-top: 1.5rem;
-      color: var(--text-color-dark);
+      color: var(--text-color);
       font-size: 0.9rem;
     }
-    .signup a {
+    .signup a, .login a {
       color: var(--primary-color);
       font-weight: 500;
     }
-    .signup a:hover {
+    .signup a:hover, .login a:hover {
       text-decoration: underline;
     }
   }
+  /* attribute required * */
+  .signup-content .form-group label.required:after,
+  .signup-content .form-group label[for]:has(+ input[required]):after{
+  content: " *";
+  color: red;
+}
 }
 
 /* Large devices (desktops, less than 1200px) */
 @media only screen and (min-width: 1224px) {
-  .login {
+  .auth {
     margin-top: 153px !important;
     padding: 4rem 2rem;
-    .login-content {
+    .auth-content {
+      min-width: 500px;
       padding: 4rem ;
       .header {
         h1 {
