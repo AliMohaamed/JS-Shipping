@@ -1,0 +1,45 @@
+/* Fonts */
+@font-face {
+  font-family: "Euclid Circular A";
+  src: url("./../assets/fonts/Euclid\ Circular\ A\ Regular.ttf") format("woff2");
+}
+
+:root {
+  --primary-color: #3c50e0;
+  --secondary-color: #1c274c;
+  --background-color: #f3f4f6;
+  --light-color: #f4f4f4;
+  --white-color: #ffffff;
+  --gray-color: #64748b;
+  --border-color: #e2e8f0;
+  --bg-search:#f9fafb;
+  --text-color: #606882 ;
+
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+body {
+  font-family: "Euclid Circular A";
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: var(--light-color);
+}
+/* Utility Classes */
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+/* Header */
+
+
+
+
