@@ -1,6 +1,6 @@
 /* Mobile Based */
 .main-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -137,7 +137,7 @@
     display: none;
   }
 }
-/* Large devices (desktops, less than 1200px) */
+
 @media only screen and (min-width: 1224px) {
   .container {
     max-width: 1100px;
@@ -145,6 +145,7 @@
     padding: 0 2rem;
   }
   .main-header {
+    height: 152px;
     padding: 1.5rem 4rem;
     .header-container {
       flex-direction: row;
@@ -358,17 +359,4 @@
         }
       }
     }
-  }
-}
-
-/* Medium devices (tablets, less than 992px) */
-@media (max-width: 992px) {
-}
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 576px) {
-}
-
-/* Very small devices (small portrait phones, less than 400px) */
-@media (max-width: 400px) {
-}
+  }}

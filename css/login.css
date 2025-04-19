@@ -1,14 +1,18 @@
+/* Login Page */
+
 .login {
+  margin-top: 193px;
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  padding: 1rem 1.5rem;
   .login-content {
     background-color: var(--white-color);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     width: 100%;
+    min-width: 300px;
     padding: 4rem 2rem;
     max-width: 600px;
     .header {
@@ -16,12 +20,10 @@
       margin-bottom: 1.5rem;
       h1 {
         color: var(--secondary-color);
-        font-size: 2.5rem;
+        font-size: 2rem;
         line-height: 40px;
         font-weight: 600;
-        margin-bottom: 0.5rem;
       }
-
       p {
         color: var(--text-color);
         font-size: 1.5rem;
@@ -34,14 +36,14 @@
           display: block;
           margin-bottom: 0.8rem;
           color: #374151;
-          font-size: 0.95rem;
+          font-size: 1.5rem;
         }
         .form-control {
           width: 100%;
           padding: 0.75rem 1rem;
           border: 1px solid #e5e7eb;
           border-radius: 6px;
-          font-size: 1rem;
+          font-size: 1.5rem;
           color: #374151;
           transition: border-color 0.15s ease-in-out;
         }
@@ -67,12 +69,12 @@
         transition: background-color 0.15s ease-in-out;
       }
       .btn-primary {
-        background-color: #1e293b;
+        background-color: var(--secondary-color);
         color: white;
       }
 
       .btn-primary:hover {
-        background-color: #0f172a;
+        background-color: var(--primary-color);
       }
     }
     .forgot-password {
@@ -81,7 +83,7 @@
       a {
         color: #6b7280;
         text-decoration: none;
-        font-size: 0.9rem;
+        font-size: 1.3rem;
       }
       a:hover {
         text-decoration: underline;
@@ -93,7 +95,15 @@
       color: #9ca3af;
       font-size: 0.9rem;
     }
-
+    .divider::before,
+    .divider::after {
+      content: "";
+      display: inline-block;
+      width: 40%;
+      height: 1px;
+      background-color: #e5e7eb;
+      vertical-align: middle;
+    }
     .oauth-btn {
       display: flex;
       align-items: center;
@@ -104,8 +114,8 @@
       border: 1px solid #e5e7eb;
       border-radius: 6px;
       background-color: white;
-      color: #374151;
-      font-size: 0.95rem;
+      color: var(--secondary-color);
+      font-size: 1.2rem;
       font-weight: 500;
       cursor: pointer;
       transition: background-color 0.15s ease-in-out;
@@ -116,13 +126,78 @@
     }
 
     .oauth-btn:hover {
-      background-color: #f9fafb;
+      background-color: var(--bg-search);
     }
     .signup {
       text-align: center;
       margin-top: 1.5rem;
-      color: #6b7280;
+      color: var(--text-color-dark);
       font-size: 0.9rem;
     }
+    .signup a {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    .signup a:hover {
+      text-decoration: underline;
+    }
   }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media only screen and (min-width: 1224px) {
+  .login {
+    margin-top: 153px !important;
+    padding: 4rem 2rem;
+    .login-content {
+      padding: 4rem ;
+      .header {
+        h1 {
+          font-size: 2.5rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      form {
+        .form-group {
+          label {
+            font-size: 1.5rem;
+          }
+          .form-control {
+            font-size: 1.3rem;
+          }
+        }
+        .btn {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .forgot-password {
+      a {
+        font-size: 1.1rem;
+      }
+    }
+    .divider {
+      font-size: 1.1rem;
+    }
+    .oauth-btn {
+      font-size: 1.1rem;
+    }
+    .signup {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 992px) {
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+}
+
+/* Very small devices (small portrait phones, less than 400px) */
+@media (max-width: 400px) {
 }

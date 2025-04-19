@@ -12,9 +12,9 @@
   --white-color: #ffffff;
   --gray-color: #64748b;
   --border-color: #e2e8f0;
-  --bg-search:#f9fafb;
-  --text-color: #606882 ;
-
+  --bg-search: #f9fafb;
+  --text-color: #606882;
+  --text-color-da: #6b7280;
 }
 * {
   margin: 0;
@@ -39,7 +39,5 @@ a {
 }
 
 /* Header */
-
-
 
 
