@@ -1,7 +1,6 @@
 /* Login Page */
 
 .auth {
-  margin-top: 193px;
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
@@ -30,34 +29,6 @@
       }
     }
     form {
-      .form-group {
-        margin-bottom: 2rem;
-        label {
-          display: block;
-          margin-bottom: 0.8rem;
-          color: var(--text-color);
-          font-size: 1.3rem !important;
-        }
-        .form-control {
-          
-          width: 100%;
-          padding: 1rem 1rem;
-          border: 1px solid #e5e7eb;
-          border-radius: 6px;
-          font-size: 1.3rem;
-          color: var(--text-color);
-          background-color: var(--bg-search);
-          transition: border-color 0.15s ease-in-out;
-        }
-        .form-control::placeholder {
-          color: #9ca3af;
-        }
-        .form-control:focus {
-          outline: none;
-          border-color: var(--primary-color);
-          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-      }
       
       .btn {
         display: block;
@@ -78,7 +49,7 @@
       .btn-auth:hover {
         background-color: var(--primary-color);
       }
-      .signup-btn{
+      .signup-btn {
         margin-top: 2rem;
       }
     }
@@ -114,7 +85,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      padding: 1rem ;
+      padding: 1rem;
       margin-bottom: 0.85rem;
       border: 1px solid #e5e7eb;
       border-radius: 6px;
@@ -134,36 +105,33 @@
       background-color: var(--background-color);
       color: var(--secondary-color);
     }
-    .signup,.login {
+    .signup,
+    .login {
       text-align: center;
       margin-top: 1.5rem;
       color: var(--text-color);
       font-size: 0.9rem;
     }
-    .signup a, .login a {
+    .signup a,
+    .login a {
       color: var(--primary-color);
       font-weight: 500;
     }
-    .signup a:hover, .login a:hover {
+    .signup a:hover,
+    .login a:hover {
       text-decoration: underline;
     }
   }
-  /* attribute required * */
-  .signup-content .form-group label.required:after,
-  .signup-content .form-group label[for]:has(+ input[required]):after{
-  content: " *";
-  color: red;
-}
+
 }
 
 /* Large devices (desktops, less than 1200px) */
 @media only screen and (min-width: 1224px) {
   .auth {
-    margin-top: 153px !important;
     padding: 4rem 2rem;
     .auth-content {
       min-width: 500px;
-      padding: 4rem ;
+      padding: 4rem;
       .header {
         h1 {
           font-size: 2.5rem;
@@ -197,8 +165,9 @@
     .oauth-btn {
       font-size: 1.1rem;
     }
-    .signup {
-      font-size: 1.1rem;
+    .signup,
+    .login {
+      font-size: 1.1rem !important;
     }
   }
 }

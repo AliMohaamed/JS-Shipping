@@ -17,62 +17,68 @@
   <body>
     <div id="header-container"></div>
     <main>
-      <section class="auth">
-        <div class="container">
-          <div class="auth-content">
-            <div class="header">
-              <h1>Log In to Your Account</h1>
-              <p>Enter your detail below</p>
-            </div>
-  
-            <form id="authForm">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  placeholder="example@gmail.com"
-                  required
-                />
+      <div class="container">
+        <section class="auth">
+          <div class="container">
+            <div class="auth-content">
+              <div class="header">
+                <h1>Log In to Your Account</h1>
+                <p>Enter your detail below</p>
               </div>
-  
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  class="form-control"
-                  placeholder="Enter your password"
-                  required
-                />
+
+              <form id="authForm">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="example@gmail.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-auth">Sign in</button>
+              </form>
+
+              <div class="forgot-password">
+                <a href="#">Forgot your password?</a>
               </div>
-  
-              <button type="submit" class="btn btn-auth">Sign in</button>
-            </form>
-  
-            <div class="forgot-password">
-              <a href="#">Forgot your password?</a>
-            </div>
-  
-            <div class="divider">Or</div>
-  
-            <button class="oauth-btn">
-              <img src="https://www.google.com/favicon.ico" alt="Google logo" />
-              Sign In with Google
-            </button>
-  
-            <button class="oauth-btn">
-              <img src="https://github.com/favicon.ico" alt="GitHub logo" /> Sign
-              In with Github
-            </button>
-  
-            <div class="signup">
-              Don't have an account? <a href="../pages/signup.html">Sign Up Now!</a>
+
+              <div class="divider">Or</div>
+
+              <button class="oauth-btn">
+                <img
+                  src="https://www.google.com/favicon.ico"
+                  alt="Google logo"
+                />
+                Sign In with Google
+              </button>
+
+              <button class="oauth-btn">
+                <img src="https://github.com/favicon.ico" alt="GitHub logo" />
+                Sign In with Github
+              </button>
+
+              <div class="signup">
+                Don't have an account?
+                <a href="../pages/signup.html">Sign Up Now!</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <script src="../js/header.js"></script>

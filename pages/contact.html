@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | JS Shipping</title>
+    <!-- icon -->
+    <link rel="icon" href="../assets/icons/Logo (6).svg" type="image/x-icon" />
+    <!-- header -->
+    <link rel="stylesheet" href="../components/header/header.css" />
+    <link rel="stylesheet" href="../components/header/header-media.css" />
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <!-- Contact -->
+    <main>
+      <section class="contact" id="contact">
+        <div class="conatiner">
+          <div class="contact-container">
+            <div class="info-card">
+              <h2>Contact Information</h2>
+
+              <div class="contact-item">
+                <div class="icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                </div>
+                <div>Email: jamse@example.com</div>
+              </div>
+
+              <div class="contact-item">
+                <div class="icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>Phone: +201151439987</div>
+              </div>
+
+              <div class="contact-item">
+                <div class="icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  Address: Giza 6 October<br />Vila zayed 2
+                </div>
+              </div>
+            </div>
+
+            <div class="form-card">
+              <form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      id="firstName"   
+                      class="form-control" 
+                      placeholder="First Name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      class="form-control"
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input
+                      type="text"
+                      id="subject"
+                      class="form-control"
+                      placeholder="Type your subject"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      class="form-control"
+                      placeholder="Enter your phone"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 20px">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    placeholder="Type your message"
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn-contaact">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/header.js"></script>
+  </body>
+</html>

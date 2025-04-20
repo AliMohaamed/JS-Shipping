@@ -1,20 +1,212 @@
 /* Media Queries for Responsive Design */
 
 /* Large devices (desktops, less than 1200px) */
-@media (max-width: 1200px) {
-    main{
-        margin-top: 153px !important;
-    }
+@media (min-width: 1200px) {
+  main {
+    margin-top: 153px !important;
+  }
+}
+/* HERO */
+/* Small Tablets & iPad Portrait (≥576px) */
+@media (min-width: 576px) {
+  .product-info h3 {
+    font-size: 1.8rem;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
 
-/* Medium devices (tablets, less than 992px) */
-@media (max-width: 992px) {}
+/* Medium Tablets (≥768px) */
+@media (min-width: 768px) {
+  .hero-card.main-product {
+    padding: 3rem;
+    flex-direction: row;
+  }
 
-/* Small devices (landscape phones, less than 768px) */
-@media (max-width: 768px) {}
+  .product-content {
+    max-width: 60%;
+  }
 
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 576px) {}
+  .product-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+  }
 
-/* Very small devices (small portrait phones, less than 400px) */
-@media (max-width: 400px) {}
+  .product-content .discount .discount-percentage {
+    font-size: 3.6rem;
+  }
+
+  .product-content .discount .discount-text {
+    font-size: 1.8rem;
+  }
+
+  .product-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-image {
+    order: 2;
+  }
+
+  .side-products {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    flex: 1;
+  }
+  .hero-footer {
+    padding: 2.5rem;
+  }
+
+  .feature-content h4 {
+    font-size: 1.3rem;
+  }
+
+  .feature-content p {
+    font-size: 1.1rem;
+  }
+}
+
+/* iPad Landscape & Small Laptops (≥1024px) */
+@media (min-width: 1024px) {
+  .hero-header {
+    grid-template-columns: 1fr;
+  }
+
+  .product-content {
+    order: 1;
+    max-width: 60%;
+  }
+
+  .product-image {
+    order: 2;
+    width: 50%;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-card.main-product {
+    padding: 3.5rem;
+    flex-direction: row;
+  }
+}
+
+/* Desktop (≥1440px) */
+@media (min-width: 1440px) {
+  .hero-header {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .product-content {
+    max-width: 50%;
+  }
+
+  .product-content .discount {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-content .discount .discount-percentage {
+    font-size: 4.2rem;
+  }
+
+  .product-content .discount .discount-text {
+    font-size: 2rem;
+  }
+
+  .product-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-content p {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+  }
+
+  .product-content .shop-now-btn {
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+  }
+
+  .hero-card.main-product {
+    padding: 4rem;
+    flex-direction: row;
+  }
+
+  .product-image {
+    order: 2;
+    width: 60%;
+  }
+
+  .side-products {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .product-card {
+    height: calc(50% - 1rem);
+    padding: 2rem;
+  }
+
+  .product-info h3 {
+    font-size: 2rem;
+  }
+
+  .offer-tag {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .current-price {
+    font-size: 2.4rem;
+  }
+
+  .original-price {
+    font-size: 1.6rem;
+  }
+
+  .product-thumbnail {
+    width: 40%;
+  }
+
+  .slider-dots {
+    bottom: 3rem;
+    gap: 1rem;
+  }
+
+  .dot {
+    width: 1rem;
+    height: 1rem;
+  }
+  .hero-footer {
+    padding: 3.5rem;
+  }
+
+  .feature-content h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .feature-content p {
+    font-size: 1.2rem;
+  }
+
+  .feature-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .feature-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
