@@ -1,26 +1,68 @@
-// Global variable to hold the products
-let allProducts = [];
+// Selectors
+const dots = document.querySelectorAll(".dot");
+const slides = document.querySelectorAll(".slide");
+const slideCount = slides.length;
+let currentIndex = 0;
+let isAnimating = false;
 
-// Async function to fetch and store products globally
-async function getProducts() {
-  try {
-    const response = await fetch("https://dummyjson.com/products");
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+function updateSlider() {
+  if (isAnimating) return;
+  isAnimating = true;
 
-    const json = await response.json();
-    allProducts = json.products; // Store in global variable
-    console.log("Products loaded:", allProducts);
-  } catch (error) {
-    console.error("Error fetching products:", error.message);
-  }
-}
-getProducts();
-
-setTimeout(() => {
-//   console.log("Using global products:", allProducts);
-  allProducts.forEach((product) => {
-    console.log(product.category);
+  // Remove all transition classes
+  slides.forEach((slide) => {
+    slide.classList.remove("active", "prev", "next");
   });
-}, 2000);
+
+  // Update dots
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentIndex);
+  });
+
+  // Add appropriate classes based on direction
+  slides[currentIndex].classList.add("active");
+
+  const prevIndex = (currentIndex - 1 + slideCount) % slideCount;
+  const nextIndex = (currentIndex + 1) % slideCount;
+
+  slides[prevIndex].classList.add("prev");
+  slides[nextIndex].classList.add("next");
+
+  // Reset animation flag after transition
+  setTimeout(() => {
+    isAnimating = false;
+  }, 500);
+}
+
+// Next slide
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slideCount;
+  updateSlider();
+}
+
+// Previous slide
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+  updateSlider();
+}
+
+// Initialize slider
+updateSlider();
+
+// Auto slide every 5 seconds
+let autoSlideInterval = setInterval(nextSlide, 5000);
+
+// Add click handlers for dots
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    if (currentIndex === index || isAnimating) return;
+
+    clearInterval(autoSlideInterval);
+    currentIndex = index;
+    updateSlider();
+
+    // Restart auto slide
+    autoSlideInterval = setInterval(nextSlide, 5000);
+  });
+});
+
