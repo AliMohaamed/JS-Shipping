@@ -66,6 +66,7 @@
         display: none;
       }
       .user-actions-section {
+        position: relative;
         display: flex;
         width: 100%;
         align-items: center;
@@ -135,6 +136,121 @@
   }
   .main-nav {
     display: none;
+    .nav-container {
+      .nav-list {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+        margin: 0;
+        padding: 0;
+        .nav-item {
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: var(--secondary-color);
+          position: relative;
+          .nav-link {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            transition: color 0.3s ease;
+          }
+          .nav-link::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: -2rem;
+            left: 0;
+            right: 0;
+            transition: width 0.3s ease;
+          }
+          .nav-link:hover::before {
+            width: 100%;
+          }
+        }
+        .dropdown {
+          cursor: pointer;
+        }
+
+        /* Dropdown styles */
+        .dropdown-container {
+          position: relative;
+        }
+
+        .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .dropdown-toggle::after {
+          content: "";
+          display: inline-block;
+          width: 0.8rem;
+          height: 0.8rem;
+          background-image: url("../../assets/images/arrow-down.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          transition: transform 0.3s ease;
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          min-width: 20rem;
+          background-color: var(--white-color);
+          border-radius: 0.4rem;
+          box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+          padding: 1.5rem;
+          margin-top: 1.5rem;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(1rem);
+          transition: all 0.3s ease;
+          z-index: 1001;
+        }
+
+        .dropdown-container:hover .dropdown-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .dropdown-container:hover .dropdown-toggle::after {
+          transform: rotate(180deg);
+        }
+
+        .dropdown-menu-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .dropdown-menu-item {
+          margin-bottom: 1rem;
+        }
+
+        .dropdown-menu-item:last-child {
+          margin-bottom: 0;
+        }
+
+        .dropdown-menu-link {
+          display: block;
+          padding: 0.8rem 0;
+          color: var(--secondary-color);
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .dropdown-menu-link:hover {
+          color: var(--primary-color);
+          font-weight: 700;
+        }
+      }
+    }
   }
 }
 
@@ -222,121 +338,7 @@
       margin-top: 1.5rem;
       justify-content: space-between;
       align-items: center;
-      .nav-container {
-        .nav-list {
-          display: flex;
-          list-style: none;
-          gap: 2.5rem;
-          margin: 0;
-          padding: 0;
-          .nav-item {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--secondary-color);
-            position: relative;
-            .nav-link {
-              text-decoration: none;
-              color: inherit;
-              position: relative;
-              transition: color 0.3s ease;
-            }
-            .nav-link::before {
-              content: "";
-              display: block;
-              width: 0;
-              height: 2px;
-              background-color: var(--primary-color);
-              position: absolute;
-              top: -2rem;
-              left: 0;
-              right: 0;
-              transition: width 0.3s ease;
-            }
-            .nav-link:hover::before {
-              width: 100%;
-            }
-          }
-          .dropdown {
-            cursor: pointer;
-          }
-
-          /* Dropdown styles */
-          .dropdown-container {
-            position: relative;
-          }
-
-          .dropdown-toggle {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-          }
-
-          .dropdown-toggle::after {
-            content: "";
-            display: inline-block;
-            width: 0.8rem;
-            height: 0.8rem;
-            background-image: url("../../assets/images/arrow-down.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            transition: transform 0.3s ease;
-          }
-
-          .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 20rem;
-            background-color: var(--white-color);
-            border-radius: 0.4rem;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(1rem);
-            transition: all 0.3s ease;
-            z-index: 1001;
-          }
-
-          .dropdown-container:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-          }
-
-          .dropdown-container:hover .dropdown-toggle::after {
-            transform: rotate(180deg);
-          }
-
-          .dropdown-menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-          }
-
-          .dropdown-menu-item {
-            margin-bottom: 1rem;
-          }
-
-          .dropdown-menu-item:last-child {
-            margin-bottom: 0;
-          }
-
-          .dropdown-menu-link {
-            display: block;
-            padding: 0.8rem 0;
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-          }
-
-          .dropdown-menu-link:hover {
-            color: var(--primary-color);
-            font-weight: 700;
-          }
-        }
-      }
+      /* Here old have nav container */
       .nav-actions {
         display: flex;
         align-items: center;
@@ -359,4 +361,8 @@
         }
       }
     }
-  }}
+    .main-nav {
+      display: block;
+    }
+  }
+}
