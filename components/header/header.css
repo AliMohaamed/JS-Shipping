@@ -62,7 +62,7 @@
       display: flex;
       align-items: center;
       .support-section,
-      .divider {
+      .divider-header {
         display: none;
       }
       .user-actions-section {
@@ -153,6 +153,9 @@
             color: inherit;
             position: relative;
             transition: color 0.3s ease;
+          }
+          .nav-link:hover{
+            color: var(--primary-color);
           }
           .nav-link::before {
             content: "";
@@ -252,6 +255,30 @@
       }
     }
   }
+
+  .main-nav.active {
+    display: block;
+    position: relative;
+    .nav-container {
+      .nav-list {
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 3.5rem 8rem 3.5rem 1.5rem;
+      }
+      .nav-link{
+        font-size: 1.4rem;
+      }
+      .nav-link::before {
+        top: 2rem !important;
+      }
+    }
+    .action-item {
+      display: none;
+    }
+  }
 }
 
 @media only screen and (min-width: 1224px) {
@@ -324,7 +351,7 @@
           font-size: 1.4rem;
         }
       }
-      .divider {
+      .divider-header {
         display: block !important;
         height: 3rem;
         width: 1px;

@@ -1,26 +1,21 @@
-// Global variable to hold the products
-let allProducts = [];
-
-// Async function to fetch and store products globally
-async function getProducts() {
-  try {
-    const response = await fetch("https://dummyjson.com/products");
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const json = await response.json();
-    allProducts = json.products; // Store in global variable
-    console.log("Products loaded:", allProducts);
-  } catch (error) {
-    console.error("Error fetching products:", error.message);
-  }
+// Fetch Products From API
+export async function fetchProducts() {
+  const res = await fetch("https://dummyjson.com/products");
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data.products;
 }
-getProducts();
+// Fetch Categories From API
+export async function fetchCategories() {
+  const res = await fetch("https://dummyjson.com/products/categories");
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data;
+}
 
-setTimeout(() => {
-//   console.log("Using global products:", allProducts);
-  allProducts.forEach((product) => {
-    console.log(product.category);
-  });
-}, 2000);
+export async function fetchCategoriess() {
+  const res = await fetch("https://dummyjson.com/products/categories");
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data;
+}

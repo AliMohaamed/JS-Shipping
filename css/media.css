@@ -13,7 +13,7 @@
     font-size: 1.8rem;
   }
   .features-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 }
@@ -160,7 +160,9 @@
   .product-info h3 {
     font-size: 2rem;
   }
-
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .offer-tag {
     font-size: 1.2rem;
     margin-bottom: 1rem;
