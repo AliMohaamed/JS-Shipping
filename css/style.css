@@ -182,6 +182,10 @@ main {
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
   font-weight: 500;
+
+}
+.product-title:hover {
+  color: var(--primary-color);
 }
 
 .product-price {

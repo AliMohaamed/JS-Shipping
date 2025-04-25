@@ -1,11 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>SHOP</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Login | JS Shipping</title>
+    <!-- icon -->
+    <link rel="icon" href="../assets/icons/Logo (6).svg" type="image/x-icon" />
+    <!-- header -->
+    <link rel="stylesheet" href="../components/header/header.css" />
+    <link rel="stylesheet" href="../css/shop.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main>
+      <section class="shop">
+        <div class="container">
+          <div class="shop-grid">
+            <div class="sidebar">
+              <div class="filter-header">
+                <p>Filters:</p>
+                <button class="clear-btn">Clear All</button>
+              </div>
+              <!-- Category filter -->
+              <div class="filter-group">
+                <button class="filter-title-btn">
+                  <span class="filter-title">Category</span>
+                  <span class="filter-arrow">&#8595;</span>
+                </button>
+                <div class="filter-options">
+                  <label class="filter-checkbox">
+                    <input type="checkbox" />
+                    <span>Laptop & PC</span>
+                    <span class="count-badge">2</span>
+                  </label>
+                  <label class="filter-checkbox">
+                    <input type="checkbox" />
+                    <span>Laptop & PC</span>
+                    <span class="count-badge">2</span>
+                  </label>
+                </div>
+              </div>
+              <!-- Price filter -->
+              <div class="filter-group">
+                <button class="filter-title-btn">
+                  <span class="filter-title">Price</span>
+                  <span class="filter-arrow">&#8595;</span>
+                </button>
+                 <div class="price-range">
+                  <input
+                    type="range"
+                    min="0"
+                    max="999"
+                    value="0"
+                    class="range-slider"
+                  />
+                  <div class="price-inputs">
+                    <div class="price-input-group">
+                      <span>$</span>
+                      <input type="number" class="price-input" value="0" />
+                    </div>
+                    <div class="price-input-group">
+                      <span>$</span>
+                      <input type="number" class="price-input" value="999" />
+                    </div>
+                  </div>
+                </div> 
+            </div>
+            <!-- Stock Filter -->
+            <div class="filter-group">
+              <button class="filter-title-btn">
+                <span class="filter-title">Stock</span>
+                <span class="filter-arrow">&#8595;</span>
+              </button>
+              <div class="filter-options">
+                <label class="filter-checkbox">
+                  <input type="checkbox" />
+                  <span>In Stock</span>
+                  <span class="count-badge">2</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" />
+                  <span>Out of Stock</span>
+                  <span class="count-badge">2</span>
+                </label>
+              </div>
+            </div>
+            <!-- Rating Filter -->
+            <div class="shop-product-grid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="../js/header.js"></script>
+    <script type="module" src="../js/shop.js"></script>
+    <!-- <script type="module" src="../js/main.js"></script> -->
+  </body>
 </html>

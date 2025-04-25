@@ -1,21 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="test.css">
-</head>
-<body>
-    <!-- عنصر ثابت -->
-<div class="fixed-header">
-    ثابت في الأعلى
+<!-- Main content with sidebar and products -->
+<div class="main-content">
+  <!-- Sidebar with filters -->
+  <div class="sidebar">
+      <!-- Category filter -->
+      <div class="filter-group">
+          <div class="filter-title">Category</div>
+          <div class="filter-options">
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Laptop & PC
+                  <span class="count-badge">2</span>
+              </label>
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Watches
+                  <span class="count-badge">1</span>
+              </label>
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Mobile & Tablets
+                  <span class="count-badge">2</span>
+              </label>
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Health & Sports
+                  <span class="count-badge">1</span>
+              </label>
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Home Appliances
+                  <span class="count-badge">1</span>
+              </label>
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Games & Videos
+                  <span class="count-badge">2</span>
+              </label>
+              <label class="filter-checkbox">
+                  <input type="checkbox"> Televisions
+                  <span class="count-badge">1</span>
+              </label>
+          </div>
+      </div>
+      
+      <!-- Size filter -->
+      <div class="filter-group">
+          <div class="filter-title">Size</div>
+          <div class="size-options">
+              <div class="size-option">XL</div>
+              <div class="size-option">XXL</div>
+              <div class="size-option active">SM</div>
+              <div class="size-option">XM</div>
+          </div>
+      </div>
+      
+      <!-- Color filter -->
+      <div class="filter-group">
+          <div class="filter-title">Colors</div>
+          <div class="color-options">
+              <div class="color-option active" style="background-color: #000;"></div>
+              <div class="color-option" style="background-color: #fff; border: 1px solid #ddd;"></div>
+              <div class="color-option" style="background-color: #4CAF50;"></div>
+              <div class="color-option" style="background-color: #2196F3;"></div>
+              <div class="color-option" style="background-color: #ADD8E6;"></div>
+              <div class="color-option" style="background-color: #808080;"></div>
+              <div class="color-option" style="background-color: #FF0000;"></div>
+              <div class="color-option" style="background-color: #FFB6C1;"></div>
+          </div>
+      </div>
+      
+      <!-- Price filter -->
+      <div class="filter-group">
+          <div class="filter-title">Price</div>
+          <div class="price-range">
+              <input type="range" min="0" max="999" value="700" class="range-slider">
+              <div class="price-inputs">
+                  <div>
+                      <span>$</span>
+                      <input type="text" class="price-input" value="0">
+                  </div>
+                  <div>
+                      <span>$</span>
+                      <input type="text" class="price-input" value="999">
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
   
-  <!-- سكشن المحتوى -->
-  <section class="main-content">
-    محتوى الصفحة هنا
-  </section>
-  
-</body>
-</html>
+  <!-- Product grid -->
+  <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+          <div class="product-image-container">
+              <img class="product-image" src="https://via.placeholder.com/200x200" alt="Portable Electric Grinder Maker">
+              <div class="product-overlay">
+                  <button class="action-btn add-to-cart">Add to cart</button>
+                  <button class="action-btn quick-view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+              </div>
+          </div>
+          <div class="product-info">
+              <div class="rating">
+                  ★★★★★ <span>(0)</span>
+              </div>
+              <div class="product-title">Portable Electric Grinder Maker</div>
+              <div class="price-container">
+                  <div class="current-price">$777</div>
+                  <div class="original-price">$888</div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Product 2 -->
+      <div class="product-card">
+          <div class="product-image-container">
+              <img class="product-image" src="https://via.placeholder.com/200x200" alt="Indoor Steel Adjustable Silent Treadmill Home Fitness">
+              <div class="product-overlay">
+                  <button class="action-btn add-to-cart">Add to cart</button>
+                  <button class="action-btn quick-view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+              </div>
+          </div>
+          <div class="product-info">
+              <div class="rating">
+                  ★★★★★ <span>(0)</span>
+              </div>
+              <div class="product-title">Indoor Steel Adjustable Silent Treadmill Home Fitness</div>
+              <div class="price-container">
+                  <div class="current-price">$888</div>
+                  <div class="original-price">$999</div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Product 3 -->
+      <div class="product-card">
+          <div class="product-image-container">
+              <img class="product-image" src="https://via.placeholder.com/200x200" alt="Rangs 43 Inch Frameless FHD Double Glass Android TV">
+              <div class="product-overlay">
+                  <button class="action-btn add-to-cart">Add to cart</button>
+                  <button class="action-btn quick-view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+              </div>
+          </div>
+          <div class="product-info">
+              <div class="rating">
+                  ★★★★★ <span>(0)</span>
+              </div>
+              <div class="product-title">Rangs 43 Inch Frameless FHD Double Glass Android TV</div>
+              <div class="price-container">
+                  <div class="current-price">$700</div>
+                  <div class="original-price">$800</div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Product 4 -->
+      <div class="product-card">
+          <div class="product-image-container">
+              <img class="product-image" src="https://via.placeholder.com/200x200" alt="True Wireless Noise Cancelling Headphone">
+              <div class="product-overlay">
+                  <button class="action-btn add-to-cart">Add to cart</button>
+                  <button class="action-btn quick-view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+              </div>
+          </div>
+          <div class="product-info">
+              <div class="rating">
+                  ★★★★★ <span>(0)</span>
+              </div>
+              <div class="product-title">True Wireless Noise Cancelling Headphone</div>
+              <div class="price-container">
+                  <div class="current-price">$899</div>
+                  <div class="original-price">$930</div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Product 5 -->
+      <div class="product-card">
+          <div class="product-image-container">
+              <img class="product-image" src="https://via.placeholder.com/200x200" alt="Macbook Pro M4 Pro">
+              <div class="product-overlay">
+                  <button class="action-btn add-to-cart">Add to cart</button>
+                  <button class="action-btn quick-view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+              </div>
+          </div>
+          <div class="product-info">
+              <div class="rating filled">
+                  ★★★★★ <span>(1)</span>
+              </div>
+              <div class="product-title">Macbook Pro M4 Pro - 512/16GB</div>
+              <div class="price-container">
+                  <div class="current-price">$450</div>
+                  <div class="original-price">$500</div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Product 6 -->
+      <div class="product-card">
+          <div class="product-image-container">
+              <img class="product-image" src="https://via.placeholder.com/200x200" alt="Apple Watch Ultra">
+              <div class="product-overlay">
+                  <button class="action-btn add-to-cart">Add to cart</button>
+                  <button class="action-btn quick-view"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+              </div>
+          </div>
+          <div class="product-info">
+              <div class="rating">
+                  ★★★★★ <span>(0)</span>
+              </div>
+              <div class="product-title">Apple Watch Ultra</div>
+              <div class="price-container">
+                  <div class="current-price">$89</div>
+                  <div class="original-price">$99</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
