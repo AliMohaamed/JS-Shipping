@@ -8,7 +8,7 @@
     <link rel="icon" href="../assets/icons/Logo (6).svg" type="image/x-icon" />
     <!-- header -->
     <link rel="stylesheet" href="../components/header/header.css" />
-    <link rel="stylesheet" href="../components/header/header-media.css" />
+    <!-- <link rel="stylesheet" href="../components/header/header-media.css" /> -->
     <!-- CSS -->
     <link rel="stylesheet" href="../css/auth.css" />
     <link rel="stylesheet" href="../css/style.css" />
@@ -37,12 +37,13 @@
   
             <div class="divider">Or</div>
   
-            <form id="authForm">
+            <form id="signupForm">
               <div class="form-group">
                 <label for="email">Full Name</label>
                 <input
                   type="text"
                   id="fullname"
+                  name="fullName"
                   class="form-control"
                   placeholder="Ali"
                   required
@@ -54,6 +55,7 @@
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   class="form-control"
                   placeholder="example@gmail.com"
                   required
@@ -65,6 +67,7 @@
                 <input
                   type="password"
                   id="password"
+                  name="password"
                   class="form-control"
                   placeholder="Enter your password"
                   required
@@ -75,13 +78,14 @@
                 <label for="password">Re-type Password</label>
                 <input
                   type="password"
+                  name="confirmPassword"
                   id="confirm-password"
                   class="form-control"
                   placeholder="Re-enter your password"
                   required
                 />
   
-              <button type="submit" class="btn btn-auth signup-btn">Create Account</button>
+              <button type="submit" class="btn btn-auth signup-btn ">Create Account</button>
             </form>
   
             <div class="forgot-password">
@@ -89,7 +93,7 @@
             </div>
   
             <div class="login">
-              Already have an account? <a href="../pages/login.html">Sign in Now!</a>
+              Already have an account? <a href="../pages/login.html">Login in Now!</a>
             </div>
           </div>
         </div>
@@ -97,7 +101,7 @@
     </main>
 
     <script type="module" src="../js/header.js"></script>
-    <!-- <script src="../js/main.js"></script> -->
+    <script type="module" src="../js/auth.js"></script>
 
   </body>
 </html>
