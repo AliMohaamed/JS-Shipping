@@ -98,7 +98,11 @@
     margin-bottom: 15px;
     gap: 5px;
 }
-
+.review-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .review-count {
     color: var(--text-color);
     font-size: 1.6rem;
@@ -314,4 +318,20 @@
 
 .cart-btn:hover {
     background-color: #495270;
+}
+
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 480px) {
+  .rating{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) {
+  /* Styles */
 }

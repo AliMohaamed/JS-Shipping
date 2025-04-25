@@ -1,4 +1,4 @@
-import { fetchCategories, fetchAllUsers,  fetchAllProducts, fetchProductById } from './fetchData.js';
+import { fetchCategories, fetchAllUsers,  fetchAllProducts, fetchProductById,  fetchProductsSorted, fetchProductsByCategoryName } from './fetchData.js';
 
 let products = [];
 let product = {};
@@ -16,6 +16,7 @@ export async function loadProducts(limit) {
 export function getProducts() {
   return products;
 }
+// load product by id
 export async function loadProductById(id) {
   try {
     product = await fetchProductById(id);    
@@ -26,7 +27,17 @@ export async function loadProductById(id) {
 export function getProductById() {
   return product;
 }
-
+// load sort Products
+export async function loadProductsSorted(key,order) {
+  try {
+    products = await fetchProductsSorted(key,order);    
+  } catch (error) {
+    console.error('Error loading data:', error);
+  }
+}
+export function getProductsSorted() {
+  return products;
+}
 
 // All Categories
 export async function loadCategories() {
@@ -40,7 +51,7 @@ export async function loadCategories() {
 export function getCategories() {
   return categories;
 }
-// Products Category ByName
+// Products Category Image
 export async function loadAllProducts() {
   try {
     products = await fetchAllProducts();
@@ -57,6 +68,20 @@ export async function loadAllProducts() {
 export function getCategoryImage(categoryName) {
   return categoryImageMap[categoryName];
 }
+// Get products by a category
+export async function loadProductsByCategoryName(categoryName) {
+  try {
+    products = await fetchProductsByCategoryName(categoryName);
+    
+  } catch (error) {
+    console.error('Error loading data:', error);
+  }
+}
+export function getProductsByCategoryName() {
+  return products;
+}
+
+
 ////////////////////////////////////////
 
 // Users

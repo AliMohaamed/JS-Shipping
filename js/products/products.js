@@ -1,15 +1,23 @@
 import { generateStarRating } from "../custom/generateStarRating.js";
-import { getProducts, loadProducts } from "../dataLoader.js";
+import { getProducts, getProductsSorted, loadProducts, loadProductsSorted } from "../dataLoader.js";
 
 export async function displayProducts(productsGridElement, limit = 8) {
-    productsGridElement.innerHTML = "";
-  
-    await loadProducts(limit);
-  
-    const products = getProducts();
-  
-    products.forEach((product) => {
-      const html = `
+  productsGridElement.innerHTML = "";
+  await loadProducts(limit);
+  const products = getProducts();
+  displayProductsElement(products, productsGridElement);
+}
+export async function displayProductsSorted(productsGridElement, key,order) {
+  productsGridElement.innerHTML = "";
+  await loadProductsSorted(key,order);
+  const products = getProductsSorted();
+  displayProductsElement(products, productsGridElement);
+}
+
+
+function displayProductsElement(products,productsGridElement) {
+  products.forEach((product) => {
+    const html = `
           <a href="#" class="product-link" data-product-id="${product.id}">
             <div class="product-card" >
               <div class="product-image" >
@@ -23,7 +31,10 @@ export async function displayProducts(productsGridElement, limit = 8) {
                 <h3 class="product-title">${product.title}</h3>
                 <div class="price-container">
                   <div class="current-price">$${product.price}</div>
-                  <div class="original-price">$${(product.price / (1 - product.discountPercentage / 100)).toFixed(2)}</div>
+                  <div class="original-price">$${(
+                    product.price /
+                    (1 - product.discountPercentage / 100)
+                  ).toFixed(2)}</div>
               </div>
               </div>
               <div class="product-actions">
@@ -45,7 +56,6 @@ export async function displayProducts(productsGridElement, limit = 8) {
             </div>
           </a>
       `;
-      productsGridElement.insertAdjacentHTML("beforeend", html);
-    });
-  }
-  
+    productsGridElement.insertAdjacentHTML("beforeend", html);
+  });
+}

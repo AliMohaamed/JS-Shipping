@@ -33,7 +33,20 @@ export async function fetchProductById(id) {
   const data = await res.json();
   return data;
 }
-
+// sort products by key
+export async function fetchProductsSorted(key, order) {
+  const res = await fetch(`https://dummyjson.com/products?sortBy=${key}&order=${order}`);
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data.products;
+}
+// Get products by a category
+export async function fetchProductsByCategoryName(categoryName) {
+  const res = await fetch(`https://dummyjson.com/products/category/${categoryName}`);
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data.products;
+}
 
 // Users
 const url = "http://localhost:3000/users";

@@ -7,6 +7,7 @@ import {
   loadCategories,
 } from "./dataLoader.js";
 import { displayProducts } from "./products/products.js";
+import { setupProductNavigation } from "./utils/productNavigation.js";
 
 const categoryGrid = document.querySelector(".category-grid");
 const productsGrid = document.querySelector(".products-grid");
@@ -18,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
 async function initApp() {
   displayAllCategories();
   displayProducts(productsGrid);
+  // Go to Product Details
+  setupProductNavigation(productsGrid)
 }
 initApp();
 
@@ -45,6 +48,5 @@ async function displayAllCategories() {
     categoryGrid.insertAdjacentHTML("beforeend", html);
   });
 }
-
 
 

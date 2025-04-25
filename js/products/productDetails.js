@@ -48,12 +48,16 @@ function displayProduct(product) {
           <h1 class="product-details-title">${product.title}</h1>
           
           <div class="rating">
-              ${generateStarRating(product.rating)}
+              <div class="rating-stars">
+                ${generateStarRating(product.rating)}
+              </div>
+              <div class="review-container">
               <span class="review-count">(${product.reviews.length} customer reviews)</span>
               
               <div class="stock-status ${stock(product.stock)}">
                   <div class="stock-icon ${stock(product.stock)}-icon"></div>
                   ${product.availabilityStatus}
+              </div>
               </div>
           </div>
           

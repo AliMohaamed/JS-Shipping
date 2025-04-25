@@ -1,8 +1,8 @@
 "use strict";
 
-import { getCategories, getProductById, loadCategories, loadProductById } from "./dataLoader.js";
-import { displayProducts } from "./products/products.js";
-export let product = {};
+import { getCategories, loadCategories } from "./dataLoader.js";
+import { displayProducts, displayProductsSorted } from "./products/products.js";
+import { setupProductNavigation } from "./utils/productNavigation.js";
 const productsGrid = document.querySelector(".products-grid");
 document.addEventListener("DOMContentLoaded", async function () {
   await loadCategories();
@@ -15,27 +15,24 @@ document.addEventListener("DOMContentLoaded", async function () {
   clearAll();
   // All Products
   await displayProducts(productsGrid, 20);
+  sortProducts();
   // product details
-  getProduct();
-
+  setupProductNavigation(productsGrid);
 });
 
-function getProduct() {
-  productsGrid.addEventListener("click", (e) => {
-    e.preventDefault();
-    // prevent add to cart
-    const addToCartPrevent = e.target.closest('.add-to-cart');
-    if(addToCartPrevent) return;
-    // click to any thing
-    const clickedElement = e.target.closest('.product-link');
-    console.log(clickedElement);
-    if (!clickedElement) return;
-    
-    const productId = clickedElement.dataset.productId;
-    if (!productId) return;
-    console.log(productId);
-    window.location.href = `../pages/productDetails.html?id=${productId}`;
-  });
+function sortProducts(){
+  const sortSelect = document.querySelector('.sort-select');
+  sortSelect.addEventListener('change',async function(){
+    if (sortSelect.value === "default") {
+      await displayProducts(productsGrid, 20);
+    }else if(sortSelect.value === "price-asc"){
+      await displayProductsSorted(productsGrid,'price','asc')
+    }else if(sortSelect.value === "price-desc"){
+      await displayProductsSorted(productsGrid,'price','desc')
+    }else if(sortSelect.value === "rating"){
+      await displayProductsSorted(productsGrid,'rating','desc')
+    }
+  })
 }
 
 // Display All Products
@@ -89,3 +86,5 @@ function clearAll(){
         })
     })
 }
+
+// 
