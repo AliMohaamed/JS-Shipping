@@ -53,14 +53,12 @@
     border: none;
     width: 100%;
     align-items: center;
-    margin-bottom: 15px;
+    
     font-size: 1.6rem;
-    padding-bottom: 10px;
     color: var(--secondary-color);
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    border-bottom: 1px solid var(--border-color);
     .filter-title{
         font-size: 1.6rem;
         color: var(--secondary-color);
@@ -74,6 +72,16 @@
         transition: transform 0.3s ease-in-out;
     }
 }
+/* Filter Bottom */
+.filter-bottom{
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+    margin-top: 10px;
+    display: none;
+}
+.filter-bottom.active{
+    display: block;
+}
 /* Category filter  */
 .filter-options {
     display: flex;
@@ -85,7 +93,7 @@
         font-size: 14px;
         color: var(--text-color);
         cursor: pointer;
-        .count-badge {
+        /* .count-badge {
             margin-left: auto;
             background-color: var(--bg-product-image);
             color: var(--text-color);    
@@ -98,7 +106,7 @@
             cursor: pointer;
             padding: 0.5rem;
             font-size: 12px;
-        }
+        } */
         /* INPUT CHECKBOX */
         input[type="checkbox"] {
             margin-right: 10px;
@@ -119,23 +127,20 @@
         input[type="checkbox"] + span:hover {
             color: var(--primary-color);
         }
-        input[type="checkbox"]:checked ~ .count-badge{
+        /* input[type="checkbox"]:checked ~ .count-badge{
             background-color: var(--primary-color);
             color: #fff;
-        }
+        } */
         input[type="checkbox"]:checked  + span{
             color: var(--primary-color);
         }
     }
-    :hover .count-badge {
+    /* :hover .count-badge {
         background-color: var(--primary-color);
         color: #fff;
-    }
+    } */
 }
 /* price-range */
-.price-range {
-    margin-top: 15px;
-}
 
 .range-slider {
     width: 100%;

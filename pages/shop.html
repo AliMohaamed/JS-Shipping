@@ -29,64 +29,60 @@
               <div class="filter-group">
                 <button class="filter-title-btn">
                   <span class="filter-title">Category</span>
-                  <span class="filter-arrow">&#8595;</span>
+                  <span class="filter-arrow">↴</span>
                 </button>
-                <div class="filter-options">
-                  <label class="filter-checkbox">
-                    <input type="checkbox" />
-                    <span>Laptop & PC</span>
-                    <span class="count-badge">2</span>
-                  </label>
-                  <label class="filter-checkbox">
-                    <input type="checkbox" />
-                    <span>Laptop & PC</span>
-                    <span class="count-badge">2</span>
-                  </label>
+                <div class="filter-bottom active">
+                    <div class="filter-options">
+                  
+                    </div>
                 </div>
+                
               </div>
               <!-- Price filter -->
               <div class="filter-group">
                 <button class="filter-title-btn">
                   <span class="filter-title">Price</span>
-                  <span class="filter-arrow">&#8595;</span>
+                  <span class="filter-arrow">↴</span>
                 </button>
-                 <div class="price-range">
-                  <input
-                    type="range"
-                    min="0"
-                    max="999"
-                    value="0"
-                    class="range-slider"
-                  />
-                  <div class="price-inputs">
-                    <div class="price-input-group">
-                      <span>$</span>
-                      <input type="number" class="price-input" value="0" />
-                    </div>
-                    <div class="price-input-group">
-                      <span>$</span>
-                      <input type="number" class="price-input" value="999" />
-                    </div>
-                  </div>
-                </div> 
+                <div class="filter-bottom active">
+                    <div class="price-range">
+                     <input
+                       type="range"
+                       min="0"
+                       max="999"
+                       value="0"
+                       class="range-slider"
+                     />
+                     <div class="price-inputs">
+                       <div class="price-input-group">
+                         <span>$</span>
+                         <input type="number" class="price-input price-input-start" value="0" disabled/>
+                       </div>
+                       <div class="price-input-group">
+                         <span>$</span>
+                         <input type="number" class="price-input price-input-end" value="999" disabled/>
+                       </div>
+                     </div>
+                   </div> 
+                </div>
             </div>
             <!-- Stock Filter -->
             <div class="filter-group">
               <button class="filter-title-btn">
                 <span class="filter-title">Stock</span>
-                <span class="filter-arrow">&#8595;</span>
+                <span class="filter-arrow">↴</span>
               </button>
-              <div class="filter-options">
-                <label class="filter-checkbox">
-                  <input type="checkbox" />
-                  <span>In Stock</span>
-                  <span class="count-badge">2</span>
-                </label>
-                <label class="filter-checkbox">
-                  <input type="checkbox" />
-                  <span>Out of Stock</span>
-                  <span class="count-badge">2</span>
-                </label>
+              <div class="filter-bottom active">
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                      <input type="checkbox" />
+                      <span>In Stock</span>
+                    </label>
+                    <label class="filter-checkbox">
+                      <input type="checkbox" />
+                      <span>Out of Stock</span>
+                    </label>
+                  </div>
               </div>
             </div>
             <!-- Rating Filter -->
