@@ -1,6 +1,7 @@
-import { fetchProducts, fetchCategories, fetchAllUsers, fetchProductsCategoryByName, fetchAllProducts } from './fetchData.js';
+import { fetchCategories, fetchAllUsers,  fetchAllProducts, fetchProductById } from './fetchData.js';
 
 let products = [];
+let product = {};
 let categories = [];
 let users = [];
 let categoryImageMap = {};
@@ -15,6 +16,18 @@ export async function loadProducts(limit) {
 export function getProducts() {
   return products;
 }
+export async function loadProductById(id) {
+  try {
+    product = await fetchProductById(id);    
+  } catch (error) {
+    console.error('Error loading data:', error);
+  }
+}
+export function getProductById() {
+  return product;
+}
+
+
 // All Categories
 export async function loadCategories() {
   try {

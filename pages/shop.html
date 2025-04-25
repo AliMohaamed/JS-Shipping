@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../components/header/header.css" />
     <link rel="stylesheet" href="../css/shop.css" />
     <!-- CSS -->
+    <link rel="stylesheet" href="./../css/product.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/media.css" />
   </head>
@@ -32,11 +33,8 @@
                   <span class="filter-arrow">↴</span>
                 </button>
                 <div class="filter-bottom active">
-                    <div class="filter-options">
-                  
-                    </div>
+                  <div class="filter-options"></div>
                 </div>
-                
               </div>
               <!-- Price filter -->
               <div class="filter-group">
@@ -45,35 +43,45 @@
                   <span class="filter-arrow">↴</span>
                 </button>
                 <div class="filter-bottom active">
-                    <div class="price-range">
-                     <input
-                       type="range"
-                       min="0"
-                       max="999"
-                       value="0"
-                       class="range-slider"
-                     />
-                     <div class="price-inputs">
-                       <div class="price-input-group">
-                         <span>$</span>
-                         <input type="number" class="price-input price-input-start" value="0" disabled/>
-                       </div>
-                       <div class="price-input-group">
-                         <span>$</span>
-                         <input type="number" class="price-input price-input-end" value="999" disabled/>
-                       </div>
-                     </div>
-                   </div> 
+                  <div class="price-range">
+                    <input
+                      type="range"
+                      min="0"
+                      max="999"
+                      value="0"
+                      class="range-slider"
+                    />
+                    <div class="price-inputs">
+                      <div class="price-input-group">
+                        <span>$</span>
+                        <input
+                          type="number"
+                          class="price-input price-input-start"
+                          value="0"
+                          disabled
+                        />
+                      </div>
+                      <div class="price-input-group">
+                        <span>$</span>
+                        <input
+                          type="number"
+                          class="price-input price-input-end"
+                          value="999"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-            <!-- Stock Filter -->
-            <div class="filter-group">
-              <button class="filter-title-btn">
-                <span class="filter-title">Stock</span>
-                <span class="filter-arrow">↴</span>
-              </button>
-              <div class="filter-bottom active">
-                <div class="filter-options">
+              </div>
+              <!-- Stock Filter -->
+              <div class="filter-group">
+                <button class="filter-title-btn">
+                  <span class="filter-title">Stock</span>
+                  <span class="filter-arrow">↴</span>
+                </button>
+                <div class="filter-bottom active">
+                  <div class="filter-options">
                     <label class="filter-checkbox">
                       <input type="checkbox" />
                       <span>In Stock</span>
@@ -83,10 +91,26 @@
                       <span>Out of Stock</span>
                     </label>
                   </div>
+                </div>
               </div>
+              <!-- Rating Filter -->
+              <div class="shop-product-grid"></div>
             </div>
-            <!-- Rating Filter -->
-            <div class="shop-product-grid"></div>
+            <div class="shop-product-grid">
+              <div class="shop-product-header">
+                <div class="sort-by">
+                  <span>Sort by:</span>
+                </div>
+                <select class="sort-select">
+                  <option value="default">Default</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Best selling</option>
+                </select>
+              </div>
+              <!-- Products -->
+              <div class="products-grid"></div>
+            </div>
           </div>
         </div>
       </section>

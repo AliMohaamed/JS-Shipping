@@ -26,6 +26,14 @@ export async function fetchProductsCategoryByName(categoryName) {
   const data = await res.json();
   return data;
 }
+// Get a single product
+export async function fetchProductById(id) {
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data;
+}
+
 
 // Users
 const url = "http://localhost:3000/users";

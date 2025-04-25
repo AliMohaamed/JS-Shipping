@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Product Details | JS Shipping</title>
+    <!-- icon -->
+    <link rel="icon" href="../assets/icons/Logo (6).svg" type="image/x-icon" />
+    <!-- header -->
+    <link rel="stylesheet" href="../../components/header/header.css" />
+    <link rel="stylesheet" href="../../css/products/productdetails.css" />
+    <!-- CSS -->
+     <link rel="stylesheet" href="../css/products/productdetails.css">
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/media.css" />
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <div class="container">
+                <div class="product-details-container">
+                    <div class="product-details-gallery">
+                        <div class="product-details-main-image">
+                            <img src="../assets/images/0e9a19b927fde251ee542f3fdd6767b2e75c8f60-175x213.png" alt="Apple iMac M4 24-inch">
+                            <!-- <div class="fullscreen-icon">⤢</div> -->
+                        </div>
+                        <div class="thumbnail-container">
+                            <div class="thumbnail active">
+                                <img src="../assets/images/4215cfaa2c068852000e05a6df2b61c9aa2eba46-570x512.png" alt="iMac front view">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="../assets/images/1c64b65f5a410e78dafe4f144ff97517547f4e5a-76x76.png" alt="iMac side view">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-details-info">
+                        <h1 class="product-details-title">Apple iMac M4 24-inch 2025</h1>
+                        
+                        <div class="rating">
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                            <span class="review-count">(4 customer reviews)</span>
+                            <div class="stock-status">
+                                <div class="stock-icon"></div>
+                                In Stock
+                            </div>
+                        </div>
+                        
+                        <div class="price-container">
+                            <span class="price">$333</span>
+                            <span class="old-price">$555</span>
+                            <span class="discount-badge">30% OFF</span>
+                        </div>
+                        
+                        <div class="delivery-info">
+                            <div class="info-item">
+                                <div class="info-icon"></div>
+                                Free delivery available
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"></div>
+                                Sales 30% Off Use Code: PROMO30
+                            </div>
+                        </div>
+
+                        <div class="quantity-controls">
+                            <button class="quantity-btn">−</button>
+                            <input type="number" readonly class="quantity-input" value="1">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        
+                        <div class="buttons-container">
+                            <button  class="purchase-btn">Purchase Now</button>
+                            <button class="cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../../js/header.js"></script>
+    <script type="module" src="../../js/products/productDetails.js"></script>
+
+</body>
+</html>

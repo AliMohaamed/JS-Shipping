@@ -1,6 +1,8 @@
 
 https://demo.nextmerce.com/
-
+https://dummyjson.com/products?sortBy=price&order=desc >> Hight to low
+https://dummyjson.com/products?sortBy=price&order=asc >> low to High
+https://dummyjson.com/products?sortBy=desc&order=desc >> Best Salller
 header category
 
 

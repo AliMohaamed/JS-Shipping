@@ -1,7 +1,9 @@
 "use strict";
 
-import { getCategories, loadCategories } from "./dataLoader.js";
-
+import { getCategories, getProductById, loadCategories, loadProductById } from "./dataLoader.js";
+import { displayProducts } from "./products/products.js";
+export let product = {};
+const productsGrid = document.querySelector(".products-grid");
 document.addEventListener("DOMContentLoaded", async function () {
   await loadCategories();
   displayCategoriesHeader();
@@ -11,8 +13,32 @@ document.addEventListener("DOMContentLoaded", async function () {
   openAndClose();
   // Clear All
   clearAll();
+  // All Products
+  await displayProducts(productsGrid, 20);
+  // product details
+  getProduct();
+
 });
 
+function getProduct() {
+  productsGrid.addEventListener("click", (e) => {
+    e.preventDefault();
+    // prevent add to cart
+    const addToCartPrevent = e.target.closest('.add-to-cart');
+    if(addToCartPrevent) return;
+    // click to any thing
+    const clickedElement = e.target.closest('.product-link');
+    console.log(clickedElement);
+    if (!clickedElement) return;
+    
+    const productId = clickedElement.dataset.productId;
+    if (!productId) return;
+    console.log(productId);
+    window.location.href = `../pages/productDetails.html?id=${productId}`;
+  });
+}
+
+// Display All Products
 function displayCategoriesHeader() {
   const categories = getCategories();
   const categoryLabel = document.querySelector(".filter-options");
