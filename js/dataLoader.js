@@ -1,13 +1,13 @@
-import { fetchProducts, fetchCategories, fetchAllUsers, fetchProductsCategoryByName } from './fetchData.js';
+import { fetchProducts, fetchCategories, fetchAllUsers, fetchProductsCategoryByName, fetchAllProducts } from './fetchData.js';
 
 let products = [];
 let categories = [];
 let users = [];
-let productsCategoryByName = [];
+let categoryImageMap = {};
 // All Products
-export async function loadProducts() {
+export async function loadProducts(limit) {
   try {
-    products = await fetchProducts();    
+    products = await fetchAllProducts(limit);    
   } catch (error) {
     console.error('Error loading data:', error);
   }
@@ -28,16 +28,21 @@ export function getCategories() {
   return categories;
 }
 // Products Category ByName
-export async function loadProductsCategoryByName(categoryName) {
+export async function loadAllProducts() {
   try {
-    productsCategoryByName = await fetchProductsCategoryByName(categoryName);
-    return productsCategoryByName;
+    products = await fetchAllProducts();
+
+    products.forEach((product) => {
+      if (!categoryImageMap[product.category]) {
+        categoryImageMap[product.category] = product.images[0];
+      }
+    });
   } catch (error) {
-    console.error('Error loading data:', error);
+    console.error('Error loading products:', error);
   }
 }
-export function getProductsCategoryByName() {
-  return productsCategoryByName;
+export function getCategoryImage(categoryName) {
+  return categoryImageMap[categoryName];
 }
 ////////////////////////////////////////
 

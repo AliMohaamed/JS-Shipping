@@ -5,6 +5,13 @@ export async function fetchProducts() {
   const data = await res.json();
   return data.products;
 }
+// Get More than 194 products
+export async function fetchAllProducts(limit = 194) {
+  const res = await fetch(`https://dummyjson.com/products?limit=${limit}`);
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const data = await res.json();
+  return data.products;
+}
 // Get all Categories From API
 export async function fetchCategories() {
   const res = await fetch("https://dummyjson.com/products/categories");

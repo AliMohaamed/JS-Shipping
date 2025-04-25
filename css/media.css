@@ -9,7 +9,7 @@
 /* HERO */
 /* Small Tablets & iPad Portrait (≥576px) */
 @media (min-width: 576px) {
-  .product-info h3 {
+  .hero-product-info h3 {
     font-size: 1.8rem;
   }
   .features-grid {
@@ -25,29 +25,29 @@
     flex-direction: row;
   }
 
-  .product-content {
+  .hero-product-content {
     max-width: 60%;
   }
 
-  .product-content h1 {
+  .hero-product-content h1 {
     font-size: 2.8rem;
     margin-bottom: 1.2rem;
   }
 
-  .product-content .discount .discount-percentage {
+  .hero-product-content .discount .discount-percentage {
     font-size: 3.6rem;
   }
 
-  .product-content .discount .discount-text {
+  .hero-product-content .discount .discount-text {
     font-size: 1.8rem;
   }
 
-  .product-content p {
+  .hero-product-content p {
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
   }
 
-  .product-image {
+  .hero-product-image {
     order: 2;
   }
 
@@ -56,7 +56,7 @@
     gap: 1.5rem;
   }
 
-  .product-card {
+  .hero-product-card {
     flex: 1;
   }
   .hero-footer {
@@ -78,17 +78,17 @@
     grid-template-columns: 1fr;
   }
 
-  .product-content {
+  .hero-product-content {
     order: 1;
     max-width: 60%;
   }
 
-  .product-image {
+  .hero-product-image {
     order: 2;
     width: 50%;
   }
 
-  .product-image img {
+  .hero-product-image img {
     width: 100%;
     height: auto;
   }
@@ -105,34 +105,34 @@
     grid-template-columns: 2fr 1fr;
   }
 
-  .product-content {
+  .hero-product-content {
     max-width: 50%;
   }
 
-  .product-content .discount {
+  .hero-product-content .discount {
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .product-content .discount .discount-percentage {
+  .hero-product-content .discount .discount-percentage {
     font-size: 4.2rem;
   }
 
-  .product-content .discount .discount-text {
+  .hero-product-content .discount .discount-text {
     font-size: 2rem;
   }
 
-  .product-content h1 {
+  .hero-product-content h1 {
     font-size: 3.2rem;
     margin-bottom: 1.5rem;
   }
 
-  .product-content p {
+  .hero-product-content p {
     font-size: 1.3rem;
     margin-bottom: 3rem;
   }
 
-  .product-content .shop-now-btn {
+  .hero-product-content .shop-now-btn {
     padding: 1rem 2rem;
     font-size: 1.3rem;
   }
@@ -142,7 +142,7 @@
     flex-direction: row;
   }
 
-  .product-image {
+  .hero-product-image {
     order: 2;
     width: 60%;
   }
@@ -152,12 +152,12 @@
     gap: 2rem;
   }
 
-  .product-card {
+  .hero-product-card {
     height: calc(50% - 1rem);
     padding: 2rem;
   }
 
-  .product-info h3 {
+  .hero-product-info h3 {
     font-size: 2rem;
   }
   .features-grid {
