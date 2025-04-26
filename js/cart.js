@@ -1,12 +1,13 @@
 import { fetchAddOrUpdateCart } from "./fetchData.js";
+import { CartUI } from "./services/CartUI.js";
 
 const main = document.querySelector(".main-content");
 const cartTableBody = document.querySelector(".cart-table tbody");
 const orderTableBody = document.querySelector(".order-card tbody");
 const totalPrice = document.querySelector(".total-price");
 
-document.addEventListener("DOMContentLoaded", function () {
-  displayCarts();
+document.addEventListener("DOMContentLoaded", () => {
+  new CartUI();
 });
 
 async function displayCarts() {
@@ -36,11 +37,15 @@ async function displayCarts() {
         <td data-label="Quantity">
           <div class="quantity-control">
             <div class="quantity-btn quantity-btn-negative">−</div>
-            <input type="text" class="quantity-input" value="${product.quantity}" readonly />
+            <input type="text" class="quantity-input" value="${
+              product.quantity
+            }" readonly />
             <div class="quantity-btn quantity-btn-plus">+</div>
           </div>
         </td>
-        <td data-label="Subtotal">$${(product.price * product.quantity).toFixed(2)}</td>
+        <td data-label="Subtotal">$${(product.price * product.quantity).toFixed(
+          2
+        )}</td>
         <td>
           <button class="delete-btn">
             ${svgDelete()}
@@ -62,7 +67,7 @@ async function displayCarts() {
     orderTableBody.insertAdjacentHTML("beforeend", orderHtml);
   });
   totalPrice.textContent = cart.totalPrice;
-  setupQuantityControls(); 
+  setupQuantityControls();
 }
 
 function setupQuantityControls() {
@@ -74,10 +79,13 @@ function setupQuantityControls() {
     const plusBtn = item.querySelector(".quantity-btn-plus");
     const minusBtn = item.querySelector(".quantity-btn-negative");
 
-    plusBtn.addEventListener("click", () => updateQuantity(productId, quantityInput, 1));
-    minusBtn.addEventListener("click", () => updateQuantity(productId, quantityInput, -1));
+    plusBtn.addEventListener("click", () =>
+      updateQuantity(productId, quantityInput, 1)
+    );
+    minusBtn.addEventListener("click", () =>
+      updateQuantity(productId, quantityInput, -1)
+    );
   });
-
 }
 
 function updateQuantity(productId, inputElement, change) {
@@ -90,8 +98,12 @@ function updateQuantity(productId, inputElement, change) {
   product.quantity = Math.max(1, product.quantity + change);
   inputElement.value = product.quantity;
 
-  const subtotalCell = inputElement.closest("tr").querySelector('[data-label="Subtotal"]');
-  subtotalCell.textContent = `$${(product.price * product.quantity).toFixed(2)}`;
+  const subtotalCell = inputElement
+    .closest("tr")
+    .querySelector('[data-label="Subtotal"]');
+  subtotalCell.textContent = `$${(product.price * product.quantity).toFixed(
+    2
+  )}`;
 
   localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -101,7 +113,6 @@ function updateQuantity(productId, inputElement, change) {
     fetchAddOrUpdateCart(cart);
   }
 }
-
 
 function emptyCart() {
   return `

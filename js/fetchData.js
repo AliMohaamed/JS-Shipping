@@ -100,10 +100,8 @@ export async function loginUser(userData) {
 const urlCart = "http://localhost:3000/carts";
 // add cart
 
-
 export async function fetchAddOrUpdateCart(cart) {
   try {
-
     const existingCart = await fetchGetCartById(cart.id).catch(() => null);
 
     const url = existingCart ? `${urlCart}/${cart.id}` : urlCart;
@@ -118,7 +116,7 @@ export async function fetchAddOrUpdateCart(cart) {
     if (!res.ok) throw new Error(`Error: ${res.status}`);
 
     const data = await res.json();
-    // return data;
+    return data;
   } catch (error) {
     console.error("Add or update cart failed:", error.message);
   }
