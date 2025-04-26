@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | JS Shipping</title>
+    <!-- icon -->
+    <link rel="icon" href="../assets/icons/Logo (6).svg" type="image/x-icon" />
+    <!-- header -->
+    <link rel="stylesheet" href="../components/header/header.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main>
+      <section class="cart">
+        <div class="container">
+          <div class="cart-header">
+            <h1>Your Cart</h1>
+            <button class="clear-button">Clear Shopping Cart</button>
+          </div>
+          <!-- Desktop Table View -->
+          <table class="cart-table">
+            <thead class="cart-table-header">
+              <tr>
+                <th style="width: 40%">Product</th>
+                <th style="width: 15%">Price</th>
+                <th style="width: 20%">Quantity</th>
+                <th style="width: 15%">Subtotal</th>
+                <th style="width: 10%">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Item 1 -->
+              <tr class="cart-item">
+                <td data-label="Product">
+                  <div class="cart-product-info">
+                    <div class="cart-product-image">
+                      <img
+                        src="../assets/images/0766155169a618af5f1336006bfe004994191fa9-570x512.png"
+                        alt="Portable Electric Grinder"
+                      />
+                    </div>
+                    <div class="cart-product-details">
+                      <h3>Portable Electric Grinder Maker</h3>
+                    </div>
+                  </div>
+                </td>
+                <td data-label="Price">$777.00</td>
+                <td data-label="Quantity">
+                  <div class="quantity-control">
+                    <div class="quantity-btn">−</div>
+                    <input
+                      type="text"
+                      class="quantity-input"
+                      value="1"
+                      readonly
+                    />
+                    <div class="quantity-btn">+</div>
+                  </div>
+                </td>
+                <td data-label="Subtotal">$777</td>
+                <td>
+                  <button class="delete-btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-trash2-icon lucide-trash-2"
+                    >
+                      <path d="M3 6h18" />
+                      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                      <line x1="10" x2="10" y1="11" y2="17" />
+                      <line x1="14" x2="14" y1="11" y2="17" />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="order">
+        <!-- Container for discount and summary sections -->
+        <div class="container">
+          <div class="order-content">
+          <!-- Discount Code Section -->
+          <div class="order-card discount-section">
+            <p class="discount-title">Have any discount code?</p>
+            <div class="coupon-form">
+              <input
+                type="text"
+                class="coupon-input"
+                placeholder="Enter coupon code"
+              />
+              <button class="apply-btn">Apply</button>
+            </div>
+          </div>
+
+          <!-- Order Summary Section -->
+          <div class="order-card summary-section">
+            <h2 class="section-title">Order Summary</h2>
+            <table class="summary-table">
+              <thead class="summary-header">
+                <tr>
+                  <th>Product</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="summary-item">
+                  <td>
+                    <div class="order-product-name">
+                      Portable Electric Grinder Maker
+                    </div>
+                  </td>
+                  <td>$777.00</td>
+                </tr>
+                <tr class="summary-item">
+                  <td>
+                    <div class="order-product-name">
+                      Rangs 43 Inch Frameless FHD Double Glass Android TV
+                    </div>
+                  </td>
+                  <td>$700.00</td>
+                </tr>
+                <tr class="summary-item">
+                  <td>
+                    <div class="order-product-name">Apple Watch Ultra</div>
+                  </td>
+                  <td>$89.00</td>
+                </tr>
+                <tr class="summary-item total-row">
+                  <td>Total</td>
+                  <td>$2454.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="checkout-btn">Process to Checkout</button>
+          </div>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="../js/header.js"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 "use strict";
 
-import { addToCart } from "./cart/cart.js";
+import { addToCart } from "./cart/addToCart.js";
 import {
   getCategories,
   getProducts,

@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   displayProduct(product);
   // Initialize quantity controls
   setupQuantityControls();
+  // Products
+  console.log(getProductById(productId));
 });
 
 async function loadAndDisplayProduct(id) {

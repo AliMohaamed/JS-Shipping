@@ -1,11 +1,12 @@
 "use strict";
 import { loadCategories, getCategories } from "./dataLoader.js";
+import { updateCartCount } from "./utils/updateCartCount.js";
 
 fetch("../components/header/header.html")
   .then((res) => res.text())
   .then(async (data) => {
     document.getElementById("header-container").innerHTML = data;
-    await new Promise((resolve) => setTimeout(resolve)); 
+    await new Promise((resolve) => setTimeout(resolve));
     const authHeader = document.querySelector(".auth-header");
     setupMobileMenu();
     await loadCategories();
@@ -18,13 +19,14 @@ fetch("../components/header/header.html")
       e.preventDefault();
       if (isLoggedUser) {
         // logout
-        localStorage.removeItem('user');
+        localStorage.removeItem("user");
         location.reload();
       } else {
         location.href = "../pages/login.html";
       }
-      console.log(isLoggedUser);
     });
+    // cart
+    updateCartCount();
   })
   .catch((err) => {
     console.log(err.message);

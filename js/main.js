@@ -9,7 +9,7 @@ import {
 } from "./dataLoader.js";
 import { displayProducts } from "./products/products.js";
 import { setupProductNavigation } from "./utils/productNavigation.js";
-import { addToCart } from "./cart/cart.js";
+import { addToCart } from "./cart/addToCart.js";
 
 const categoryGrid = document.querySelector(".category-grid");
 const productsGrid = document.querySelector(".products-grid");
