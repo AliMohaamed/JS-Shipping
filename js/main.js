@@ -27,7 +27,6 @@ async function initApp() {
   // Go to Product Details
   setupProductNavigation(productsGrid);
 }
-initApp();
 
 async function displayAllCategories() {
   categoryGrid.innerHTML = "";

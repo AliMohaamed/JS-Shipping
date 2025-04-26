@@ -22,6 +22,7 @@ export function addToCart(products, productsGrid) {
       console.warn("Product not found");
       return;
     }
+    const { id, title, price, thumbnail } = product;
     // if user logged in
     const isLoggedUser = JSON.parse(localStorage.getItem("user"));
     if (isLoggedUser) {
@@ -49,6 +50,7 @@ export function addToCart(products, productsGrid) {
 
         cart.products.push(product);
         cart.totalPrice += product.price;
+        cart.totalProducts += 1;
         localStorage.setItem("cart", JSON.stringify(cart));
         showCustomAlert(
           "success",
@@ -62,8 +64,9 @@ export function addToCart(products, productsGrid) {
           "cart",
           JSON.stringify({
             id: Date.now(),
-            products: [product],
+            products: [{ id, title, price, thumbnail, quantity: 1 }],
             totalPrice: product.price,
+            totalProducts: 1,
           })
         );
         showCustomAlert(

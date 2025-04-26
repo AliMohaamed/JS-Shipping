@@ -1,7 +1,12 @@
 "use strict";
 
 import { addToCart } from "./cart/cart.js";
-import { getCategories, getProducts, loadCategories } from "./dataLoader.js";
+import {
+  getCategories,
+  getProducts,
+  getProductsSorted,
+  loadCategories,
+} from "./dataLoader.js";
 import {
   displayProducts,
   displayProductsElement,
@@ -13,7 +18,6 @@ let products = [];
 document.addEventListener("DOMContentLoaded", async function () {
   await loadCategories();
   displayCategoriesHeader();
-
   // Display all products initially
   await displayProducts(productsGrid, 50);
   // Setup page features
@@ -32,15 +36,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 function sortProducts() {
   const sortSelect = document.querySelector(".sort-select");
   sortSelect.addEventListener("change", async function () {
-    if (sortSelect.value === "default") {
+    if (sortSelect.value === sortSelect.options[0].value) {
       await displayProducts(productsGrid, 20);
+      products = getProducts();
     } else if (sortSelect.value === "price-asc") {
       await displayProductsSorted(productsGrid, "price", "asc");
+      products = getProductsSorted();
     } else if (sortSelect.value === "price-desc") {
       await displayProductsSorted(productsGrid, "price", "desc");
+      products = getProductsSorted();
     } else if (sortSelect.value === "rating") {
       await displayProductsSorted(productsGrid, "rating", "desc");
+      products = getProductsSorted();
     }
+    addToCart(products, productsGrid);
+    console.log(products);
   });
 }
 
