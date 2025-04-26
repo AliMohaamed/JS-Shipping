@@ -118,8 +118,7 @@ export async function fetchAddOrUpdateCart(cart) {
     if (!res.ok) throw new Error(`Error: ${res.status}`);
 
     const data = await res.json();
-    console.log(existingCart ? "Cart updated:" : "Cart created:", data);
-    return data;
+    // return data;
   } catch (error) {
     console.error("Add or update cart failed:", error.message);
   }

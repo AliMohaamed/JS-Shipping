@@ -1,7 +1,7 @@
 // addCart.js
 
 import { showCustomAlert } from "../custom/alert.js";
-import { getAllCarts, loadAllCarts } from "../dataLoader.js";
+import {  loadAllCarts } from "../dataLoader.js";
 import { fetchAddOrUpdateCart } from "../fetchData.js";
 import { updateCartCount } from "../utils/updateCartCount.js";
 
@@ -14,10 +14,13 @@ export async function addToCart(products, productsGrid) {
   await loadAllCarts();
 
   productsGrid.addEventListener("click", async (e) => {
-    e.preventDefault();
-
+    e.preventDefault()
+    if (e.target.closest("form")) e.stopPropagation();
     const productBtn = e.target.closest(".add-to-cart");
     if (!productBtn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
 
     const productId = Number(productBtn.dataset.productId);
     if (!productId) {
@@ -34,78 +37,69 @@ export async function addToCart(products, productsGrid) {
     const user = JSON.parse(localStorage.getItem("user"));
     let cart = JSON.parse(localStorage.getItem("cart"));
 
-    if (user) {
-      const carts = getAllCarts();
-      const userCart = carts.find((c) => c.id === user.id);
-
-      if (userCart) {
-        if (!cart) {
-          // Create local cart first if it doesn't exist
-          cart = createLocalCart(product, user.id);
-        } else {
-          handleLocalCart(cart, product);
-        }
-      } else {
-        // User has no cart on server
-        if (cart) {
-          handleLocalCart(cart, product);
-          await fetchAddOrUpdateCart(cart);
-        } else {
-          cart = createLocalCart(product, user.id);
-          await fetchAddOrUpdateCart(cart);
-        }
-      }
+    if (!cart) {
+      cart = createLocalCart(user, product);
     } else {
-      // Not logged in user
-      if (cart) {
-        handleLocalCart(cart, product);
-      } else {
-        createLocalCart(product);
+      const exists = cart.products.find(
+        (item) => item.productId === product.id
+      );
+      if (exists) {
+        showCustomAlert(
+          "warning",
+          "Cart",
+          "Product already in cart",
+          3000,
+          "top-right"
+        );
+        return;
       }
+
+      cart.products.push({
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        thumbnail: product.thumbnail,
+        quantity: 1,
+      });
+      cart.totalPrice += product.price;
+      cart.totalProducts += 1;
+      cart.totalQuantity += 1;
+
+      saveCart(cart);
     }
+
+    if (user) {
+      await fetchAddOrUpdateCart(cart);
+    }
+
+    showCustomAlert("success", "Success!", "Added to cart.", 3000, "top-right");
   });
 }
 
-// functions
+// Helper Functions
 
-function handleLocalCart(cart, product) {
-
-  const exists = cart.products.find((item) => item.id === product.id);
-  if (exists) {
-    showCustomAlert(
-      "warning",
-      "Cart",
-      "Product already in cart",
-      3000,
-      "top-right"
-    );
-    return;
-  }
-  const {id:productId,title,price,thumbnail} = product;
-
-  cart.products.push({productId,title,price,thumbnail});
-  cart.totalPrice += product.price;
-  cart.totalProducts += 1;
-  cart.totalQuantity += 1;
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  showCustomAlert("success", "Success!", "Added to cart.", 3000, "top-right");
-}
-
-function createLocalCart(productId,title,price,thumbnail, userId = Date.now()) {
-  const newCart = {
-    id: userId,
-    products: [{productId,title,price,thumbnail}],
-    totalPrice: price,
+function createLocalCart(user, product) {
+  const cart = {
+    id: user ? user.id : Date.now(),
+    products: [
+      {
+        productId: product.id,
+        title: product.title,
+        price: product.price,
+        thumbnail: product.thumbnail,
+        quantity: 1,
+      },
+    ],
+    totalPrice: product.price,
     totalProducts: 1,
     totalQuantity: 1,
   };
 
-  localStorage.setItem("cart", JSON.stringify(newCart));
-  updateCartCount();
-  showCustomAlert("success", "Success!", "Added to cart.", 3000, "top-right");
-  return newCart;
+  saveCart(cart);
+  return cart;
 }
 
-
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}

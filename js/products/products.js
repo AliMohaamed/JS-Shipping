@@ -1,5 +1,10 @@
 import { generateStarRating } from "../custom/generateStarRating.js";
-import { getProducts, getProductsSorted, loadProducts, loadProductsSorted } from "../dataLoader.js";
+import {
+  getProducts,
+  getProductsSorted,
+  loadProducts,
+  loadProductsSorted,
+} from "../dataLoader.js";
 
 export async function displayProducts(productsGridElement, limit = 8) {
   productsGridElement.innerHTML = "";
@@ -7,15 +12,14 @@ export async function displayProducts(productsGridElement, limit = 8) {
   const products = getProducts();
   displayProductsElement(products, productsGridElement);
 }
-export async function displayProductsSorted(productsGridElement, key,order) {
+export async function displayProductsSorted(productsGridElement, key, order) {
   productsGridElement.innerHTML = "";
-  await loadProductsSorted(key,order);
+  await loadProductsSorted(key, order);
   const products = getProductsSorted();
   displayProductsElement(products, productsGridElement);
 }
 
-
-export function displayProductsElement(products,productsGridElement) {
+export function displayProductsElement(products, productsGridElement) {
   products.forEach((product) => {
     const html = `
           <a href="#" class="product-link" data-product-id="${product.id}">
@@ -37,8 +41,10 @@ export function displayProductsElement(products,productsGridElement) {
                   ).toFixed(2)}</div>
               </div>
               </div>
-              <div class="product-actions">
-                <button class="action-btn add-to-cart" data-product-id="${product.id}">
+              <div type="button" class="product-actions">
+                <button class="action-btn add-to-cart" data-product-id="${
+                  product.id
+                }">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
@@ -46,7 +52,7 @@ export function displayProductsElement(products,productsGridElement) {
                   </svg>
                   Add to Cart
                 </button>
-                <button class="action-btn view-details">
+                <button type="button"  class="action-btn view-details">
                   <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                     <circle cx="12" cy="12" r="3"></circle>

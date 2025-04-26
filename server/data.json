@@ -11,102 +11,50 @@
       "email": "alihoms9083@gmail.com",
       "password": "Ali@12345",
       "id": "hDrp6U9"
+    },
+    {
+      "name": "ali",
+      "email": "ali@top.js",
+      "password": "Aa@123456",
+      "id": "EwFIAMx"
     }
   ],
   "carts": [
     {
-      "id": 1745690376252,
+      "id": "c31d",
       "products": [
         {
-          "productId": {
-            "id": 2,
-            "title": "Eyeshadow Palette with Mirror",
-            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-            "category": "beauty",
-            "price": 19.99,
-            "discountPercentage": 5.5,
-            "rating": 3.28,
-            "stock": 44,
-            "tags": [
-              "beauty",
-              "eyeshadow"
-            ],
-            "brand": "Glamour Beauty",
-            "sku": "MVCFH27F",
-            "weight": 3,
-            "dimensions": {
-              "width": 12.42,
-              "height": 8.63,
-              "depth": 29.13
-            },
-            "warrantyInformation": "1 year warranty",
-            "shippingInformation": "Ships in 2 weeks",
-            "availabilityStatus": "In Stock",
-            "reviews": [
-              {
-                "rating": 4,
-                "comment": "Very satisfied!",
-                "date": "2024-05-23T08:56:21.618Z",
-                "reviewerName": "Liam Garcia",
-                "reviewerEmail": "liam.garcia@x.dummyjson.com"
-              },
-              {
-                "rating": 1,
-                "comment": "Very disappointed!",
-                "date": "2024-05-23T08:56:21.618Z",
-                "reviewerName": "Nora Russell",
-                "reviewerEmail": "nora.russell@x.dummyjson.com"
-              },
-              {
-                "rating": 5,
-                "comment": "Highly impressed!",
-                "date": "2024-05-23T08:56:21.618Z",
-                "reviewerName": "Elena Baker",
-                "reviewerEmail": "elena.baker@x.dummyjson.com"
-              }
-            ],
-            "returnPolicy": "30 days return policy",
-            "minimumOrderQuantity": 32,
-            "meta": {
-              "createdAt": "2024-05-23T08:56:21.618Z",
-              "updatedAt": "2024-05-23T08:56:21.618Z",
-              "barcode": "2817839095220",
-              "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-            },
-            "images": [
-              "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
-            ],
-            "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
-          }
-        },
-        {
-          "productId": 3,
-          "title": "Powder Canister",
-          "price": 14.99,
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
-        },
-        {
-          "productId": 4,
-          "title": "Red Lipstick",
-          "price": 12.99,
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png"
-        },
-        {
-          "productId": 3,
-          "title": "Powder Canister",
-          "price": 14.99,
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png"
+          "productId": 2,
+          "title": "Eyeshadow Palette with Mirror",
+          "price": 19.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+          "quantity": 2
         },
         {
           "productId": 6,
           "title": "Calvin Klein CK One",
           "price": 49.99,
-          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png"
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
+          "quantity": 1
+        },
+        {
+          "productId": 11,
+          "title": "Annibale Colombo Bed",
+          "price": 1899.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+          "quantity": 1
+        },
+        {
+          "productId": 5,
+          "title": "Red Nail Polish",
+          "price": 8.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
+          "quantity": 1
         }
       ],
-      "totalProducts": 5,
-      "totalQuantity": 5,
-      "totalPrice": 77.97
+      "totalPrice": 1978.96,
+      "totalProducts": 4,
+      "totalQuantity": 4
     }
   ]
 }

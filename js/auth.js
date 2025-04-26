@@ -6,7 +6,7 @@ import {
   validateConfirmPassword,
   flag,
 } from "./validation.js";
-import { signUpUser, loginUser } from "./fetchData.js";
+import { signUpUser, loginUser, fetchAddOrUpdateCart } from "./fetchData.js";
 import { getAllUsers, loadUsers } from "./dataLoader.js";
 import { showCustomAlert } from "./custom/alert.js";
 
@@ -63,7 +63,7 @@ btnSubmitSignUp?.addEventListener("click", async (e) => {
   if (!checkEmail) {
     // add user in db
     await signUpUser(user);
-    // location.assign("../pages/login.html");
+
     location.href = "../pages/login.html";
   } else {
     console.log("User already founded");
@@ -99,8 +99,12 @@ btnSubmitLogin?.addEventListener("click", async (e) => {
         email: loggedInUser.email,
       })
     );
-    location.href = "./../index.html"
-    return
+    // cart
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart) await fetchAddOrUpdateCart(cart);
+    console.log(cart);
+    location.href = "./../index.html";
+    return;
   } else {
     console.log("Login failed");
     showCustomAlert(
