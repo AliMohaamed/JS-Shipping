@@ -26,7 +26,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   // sort products
   sortProducts();
   // in stock or not
-  sortDependStocks(productsGrid);
+  sortDependStocks(products, productsGrid);
+  // range slider
+  setupRangeSlider(products, productsGrid);
   // add to cart
   addToCart(products, productsGrid);
   // product details
@@ -50,15 +52,16 @@ function sortProducts() {
       products = getProductsSorted();
     }
     addToCart(products, productsGrid);
+    sortDependStocks(products, productsGrid);
+    setupRangeSlider(products, productsGrid);
     console.log(products);
   });
 }
 
 // in stock or not
-async function sortDependStocks(productsGridElement) {
+async function sortDependStocks(products, productsGridElement) {
   const inStock = document.getElementById("inStock");
   const outOfStock = document.getElementById("outOfStock");
-  const products = getProducts();
 
   function updateSortedProducts() {
     let sortProducts = [];
@@ -98,8 +101,7 @@ function displayCategoriesHeader() {
 }
 
 // ============ SETUP UI INTERACTIONS ============ //
-function executedFunctions(productsGridElement) {
-  setupRangeSlider(productsGridElement);
+function executedFunctions() {
   setupAccordion();
   setupClearAll();
 }
@@ -120,10 +122,10 @@ function setupAccordion() {
 }
 
 // ============ PRICE RANGE SLIDER (UI only) ============ //
-function setupRangeSlider(productsGridElement) {
+function setupRangeSlider(products, productsGridElement) {
   const rangeSlider = document.querySelector(".range-slider");
   const priceInputEnd = document.querySelector(".price-input-end");
-  const products = getProducts();
+
   let filtersProducts = [];
   if (rangeSlider && priceInputEnd) {
     rangeSlider.addEventListener("input", () => {

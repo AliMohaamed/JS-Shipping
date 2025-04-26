@@ -21,7 +21,9 @@ export async function fetchCategories() {
 }
 
 export async function fetchProductsCategoryByName(categoryName) {
-  const res = await fetch(`https://dummyjson.com/products/category/${categoryName}`);
+  const res = await fetch(
+    `https://dummyjson.com/products/category/${categoryName}`
+  );
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
   const data = await res.json();
   return data;
@@ -35,33 +37,36 @@ export async function fetchProductById(id) {
 }
 // sort products by key
 export async function fetchProductsSorted(key, order) {
-  const res = await fetch(`https://dummyjson.com/products?sortBy=${key}&order=${order}`);
+  const res = await fetch(
+    `https://dummyjson.com/products?sortBy=${key}&order=${order}`
+  );
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
   const data = await res.json();
   return data.products;
 }
 // Get products by a category
 export async function fetchProductsByCategoryName(categoryName) {
-  const res = await fetch(`https://dummyjson.com/products/category/${categoryName}`);
+  const res = await fetch(
+    `https://dummyjson.com/products/category/${categoryName}`
+  );
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
   const data = await res.json();
   return data.products;
 }
 
 // Users
-const url = "http://localhost:3000/users";
+const urlUsers = "http://localhost:3000/users";
 export async function fetchAllUsers() {
-  const res = await fetch(url, { method: "GET" });
+  const res = await fetch(urlUsers, { method: "GET" });
   if (!res.ok) throw new Error(`Error: ${res.status}`);
   const data = await res.json();
   return data;
 }
 
 // auth
-
 export async function signUpUser(userData) {
   try {
-    const res = await fetch(url, {
+    const res = await fetch(urlUsers, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -79,7 +84,7 @@ export async function signUpUser(userData) {
 
 export async function loginUser(userData) {
   try {
-    const res = await fetch(url, { method: "GET" });
+    const res = await fetch(urlUsers, { method: "GET" });
     if (!res.ok) throw new Error(`Error: ${res.status}`);
 
     const data = await res.json();
@@ -89,4 +94,48 @@ export async function loginUser(userData) {
   } catch (error) {
     console.error("Login failed:", error.message);
   }
+}
+
+// cart
+const urlCart = "http://localhost:3000/carts";
+// add cart
+
+
+export async function fetchAddOrUpdateCart(cart) {
+  try {
+
+    const existingCart = await fetchGetCartById(cart.id).catch(() => null);
+
+    const url = existingCart ? `${urlCart}/${cart.id}` : urlCart;
+    const method = existingCart ? "PATCH" : "POST";
+
+    const res = await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cart),
+    });
+
+    if (!res.ok) throw new Error(`Error: ${res.status}`);
+
+    const data = await res.json();
+    console.log(existingCart ? "Cart updated:" : "Cart created:", data);
+    return data;
+  } catch (error) {
+    console.error("Add or update cart failed:", error.message);
+  }
+}
+
+// get all carts
+export async function fetchGetAllCarts() {
+  const res = await fetch(urlCart, { method: "GET" });
+  if (!res.ok) throw new Error(`Error: ${res.status}`);
+  const data = await res.json();
+  return data;
+}
+// get cart using id
+export async function fetchGetCartById(cartId) {
+  const res = await fetch(`${urlCart}/${cartId}`, { method: "GET" });
+  if (!res.ok) throw new Error(`Error: ${res.status}`);
+  const data = await res.json();
+  return data;
 }
