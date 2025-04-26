@@ -38,7 +38,7 @@ export function displayProductsElement(products,productsGridElement) {
               </div>
               </div>
               <div class="product-actions">
-                <button class="action-btn add-to-cart">
+                <button class="action-btn add-to-cart" data-product-id="${product.id}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>

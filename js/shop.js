@@ -1,65 +1,73 @@
 "use strict";
 
+import { addToCart } from "./cart/cart.js";
 import { getCategories, getProducts, loadCategories } from "./dataLoader.js";
-import { displayProducts, displayProductsElement, displayProductsSorted } from "./products/products.js";
+import {
+  displayProducts,
+  displayProductsElement,
+  displayProductsSorted,
+} from "./products/products.js";
 import { setupProductNavigation } from "./utils/productNavigation.js";
 const productsGrid = document.querySelector(".products-grid");
+let products = [];
 document.addEventListener("DOMContentLoaded", async function () {
   await loadCategories();
   displayCategoriesHeader();
 
   // Display all products initially
   await displayProducts(productsGrid, 50);
-    // Setup page features
-    executedFunctions(productsGrid);
-
+  // Setup page features
+  executedFunctions(productsGrid);
+  products = getProducts();
   // sort products
   sortProducts();
   // in stock or not
   sortDependStocks(productsGrid);
+  // add to cart
+  addToCart(products, productsGrid);
   // product details
   setupProductNavigation(productsGrid);
 });
 // Sort Products
-function sortProducts(){
-  const sortSelect = document.querySelector('.sort-select');
-  sortSelect.addEventListener('change',async function(){
+function sortProducts() {
+  const sortSelect = document.querySelector(".sort-select");
+  sortSelect.addEventListener("change", async function () {
     if (sortSelect.value === "default") {
       await displayProducts(productsGrid, 20);
-    }else if(sortSelect.value === "price-asc"){
-      await displayProductsSorted(productsGrid,'price','asc')
-    }else if(sortSelect.value === "price-desc"){
-      await displayProductsSorted(productsGrid,'price','desc')
-    }else if(sortSelect.value === "rating"){
-      await displayProductsSorted(productsGrid,'rating','desc')
+    } else if (sortSelect.value === "price-asc") {
+      await displayProductsSorted(productsGrid, "price", "asc");
+    } else if (sortSelect.value === "price-desc") {
+      await displayProductsSorted(productsGrid, "price", "desc");
+    } else if (sortSelect.value === "rating") {
+      await displayProductsSorted(productsGrid, "rating", "desc");
     }
-  })
+  });
 }
 
 // in stock or not
 async function sortDependStocks(productsGridElement) {
-  const inStock = document.getElementById('inStock');
-  const outOfStock = document.getElementById('outOfStock');
+  const inStock = document.getElementById("inStock");
+  const outOfStock = document.getElementById("outOfStock");
   const products = getProducts();
 
   function updateSortedProducts() {
     let sortProducts = [];
 
     if (inStock.checked && outOfStock.checked) {
-      sortProducts = products; 
+      sortProducts = products;
     } else if (inStock.checked) {
-      sortProducts = products.filter(product => product.stock > 0);
+      sortProducts = products.filter((product) => product.stock > 0);
     } else if (outOfStock.checked) {
-      sortProducts = products.filter(product => product.stock <= 0);
+      sortProducts = products.filter((product) => product.stock <= 0);
     } else {
       sortProducts = products;
     }
     console.log(sortProducts);
     productsGridElement.innerHTML = "";
-    displayProductsElement(sortProducts,productsGridElement);
+    displayProductsElement(sortProducts, productsGridElement);
   }
-  inStock.addEventListener('change', updateSortedProducts);
-  outOfStock.addEventListener('change', updateSortedProducts);
+  inStock.addEventListener("change", updateSortedProducts);
+  outOfStock.addEventListener("change", updateSortedProducts);
 }
 
 // ============ DISPLAY CATEGORIES ============ //
@@ -112,27 +120,28 @@ function setupRangeSlider(productsGridElement) {
       priceInputEnd.value = rangeSlider.value;
     });
     rangeSlider.addEventListener("change", () => {
-      productsGridElement.innerHTML ='';
-      filtersProducts = products.filter((product)=> product.price < Number(rangeSlider.value));
-      displayProductsElement(filtersProducts,productsGridElement)
-      
+      productsGridElement.innerHTML = "";
+      filtersProducts = products.filter(
+        (product) => product.price < Number(rangeSlider.value)
+      );
+      displayProductsElement(filtersProducts, productsGridElement);
     });
   }
 }
 
 // ============ CLEAR ALL FILTERS ============ //
 function setupClearAll() {
-  const clearBtn = document.querySelector('.clear-btn');
+  const clearBtn = document.querySelector(".clear-btn");
 
   if (!clearBtn) return;
 
-  clearBtn.addEventListener('click', function () {
+  clearBtn.addEventListener("click", function () {
     const range = document.querySelector(".range-slider");
     const priceEnd = document.querySelector(".price-input-end");
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-    if (range) range.value = '0';
-    if (priceEnd) priceEnd.value = '34000';
+    if (range) range.value = "0";
+    if (priceEnd) priceEnd.value = "34000";
 
     checkboxes.forEach((check) => (check.checked = false));
   });

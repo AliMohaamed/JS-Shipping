@@ -3,24 +3,29 @@ import { initSlider } from "./slider.js";
 import {
   getCategories,
   getCategoryImage,
+  getProducts,
   loadAllProducts,
   loadCategories,
 } from "./dataLoader.js";
 import { displayProducts } from "./products/products.js";
 import { setupProductNavigation } from "./utils/productNavigation.js";
+import { addToCart } from "./cart/cart.js";
 
 const categoryGrid = document.querySelector(".category-grid");
 const productsGrid = document.querySelector(".products-grid");
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   // Run all needed features
   initSlider();
+  await initApp();
+  let products = getProducts();
+  addToCart(products, productsGrid);
 });
 // loadCategories();
 async function initApp() {
   displayAllCategories();
-  displayProducts(productsGrid);
+  await displayProducts(productsGrid);
   // Go to Product Details
-  setupProductNavigation(productsGrid)
+  setupProductNavigation(productsGrid);
 }
 initApp();
 
@@ -48,5 +53,3 @@ async function displayAllCategories() {
     categoryGrid.insertAdjacentHTML("beforeend", html);
   });
 }
-
-
