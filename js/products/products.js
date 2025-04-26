@@ -15,7 +15,7 @@ export async function displayProductsSorted(productsGridElement, key,order) {
 }
 
 
-function displayProductsElement(products,productsGridElement) {
+export function displayProductsElement(products,productsGridElement) {
   products.forEach((product) => {
     const html = `
           <a href="#" class="product-link" data-product-id="${product.id}">

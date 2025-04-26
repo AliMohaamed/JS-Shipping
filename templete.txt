@@ -12,3 +12,5 @@ run json
 json-server --watch db.json --port 3000
 
 input range start
+add dec and reviews in product details
+inhance performance and memeory from shop.js and so on

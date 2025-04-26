@@ -1,25 +1,26 @@
 "use strict";
 
-import { getCategories, loadCategories } from "./dataLoader.js";
-import { displayProducts, displayProductsSorted } from "./products/products.js";
+import { getCategories, getProducts, loadCategories } from "./dataLoader.js";
+import { displayProducts, displayProductsElement, displayProductsSorted } from "./products/products.js";
 import { setupProductNavigation } from "./utils/productNavigation.js";
 const productsGrid = document.querySelector(".products-grid");
 document.addEventListener("DOMContentLoaded", async function () {
   await loadCategories();
   displayCategoriesHeader();
-  // Range
-  inputRange();
-  // Open Or Close filter title btn
-  openAndClose();
-  // Clear All
-  clearAll();
-  // All Products
-  await displayProducts(productsGrid, 20);
+
+  // Display all products initially
+  await displayProducts(productsGrid, 50);
+    // Setup page features
+    executedFunctions(productsGrid);
+
+  // sort products
   sortProducts();
+  // in stock or not
+  sortDependStocks(productsGrid);
   // product details
   setupProductNavigation(productsGrid);
 });
-
+// Sort Products
 function sortProducts(){
   const sortSelect = document.querySelector('.sort-select');
   sortSelect.addEventListener('change',async function(){
@@ -35,7 +36,33 @@ function sortProducts(){
   })
 }
 
-// Display All Products
+// in stock or not
+async function sortDependStocks(productsGridElement) {
+  const inStock = document.getElementById('inStock');
+  const outOfStock = document.getElementById('outOfStock');
+  const products = getProducts();
+
+  function updateSortedProducts() {
+    let sortProducts = [];
+
+    if (inStock.checked && outOfStock.checked) {
+      sortProducts = products; 
+    } else if (inStock.checked) {
+      sortProducts = products.filter(product => product.stock > 0);
+    } else if (outOfStock.checked) {
+      sortProducts = products.filter(product => product.stock <= 0);
+    } else {
+      sortProducts = products;
+    }
+    console.log(sortProducts);
+    productsGridElement.innerHTML = "";
+    displayProductsElement(sortProducts,productsGridElement);
+  }
+  inStock.addEventListener('change', updateSortedProducts);
+  outOfStock.addEventListener('change', updateSortedProducts);
+}
+
+// ============ DISPLAY CATEGORIES ============ //
 function displayCategoriesHeader() {
   const categories = getCategories();
   const categoryLabel = document.querySelector(".filter-options");
@@ -43,48 +70,70 @@ function displayCategoriesHeader() {
   if (!categoryLabel) return;
 
   categories.forEach((category) => {
-    const html = `<label class="filter-checkbox">
-                    <input type="checkbox" name="${category.slug}"/>
-                    <span>${category.name}</span>
-                    
-                  </label>`;
+    const html = `
+      <label class="filter-checkbox">
+        <input type="checkbox" name="${category.slug}"/>
+        <span>${category.name}</span>
+      </label>`;
     categoryLabel.insertAdjacentHTML("beforeend", html);
   });
 }
-function openAndClose() {
+
+// ============ SETUP UI INTERACTIONS ============ //
+function executedFunctions(productsGridElement) {
+  setupRangeSlider(productsGridElement);
+  setupAccordion();
+  setupClearAll();
+}
+
+// ============ ACCORDION FILTERS ============ //
+function setupAccordion() {
   const arrowButtons = document.querySelectorAll(".filter-title-btn");
-  const filterBottomAll = document.querySelectorAll(".filter-bottom");
-  arrowButtons.forEach((arrowButton)=>{
+
+  arrowButtons.forEach((arrowButton) => {
     arrowButton.addEventListener("click", function () {
       const filterBottom = arrowButton.nextElementSibling;
       filterBottom.classList.toggle("active");
-      arrowButton.querySelector(".filter-arrow").textContent = filterBottom.classList.contains("active")
-        ? "↱"
-        : "↴";
-    });
-  })
-}
 
-// Range
-function inputRange() {
-  const rangeSlider = document.querySelector(".range-slider");
-  const priceInputStart = document.querySelector(".price-input-start");
-  const priceInputEnd = document.querySelector(".price-input-end");
-  rangeSlider.addEventListener("input", () => {
-    priceInputEnd.value = rangeSlider.value;
+      arrowButton.querySelector(".filter-arrow").textContent =
+        filterBottom.classList.contains("active") ? "↱" : "↴";
+    });
   });
 }
 
-// clear all
-function clearAll(){
-    const clearBtn = document.querySelector('.clear-btn');
-    clearBtn.addEventListener('click',function(){
-        document.querySelector(".price-input-end").value = '999';
-        document.querySelector(".range-slider").value = '0';
-        document.querySelectorAll("input[type='checkbox']").forEach((check)=>{
-            check.checked = false
-        })
-    })
+// ============ PRICE RANGE SLIDER (UI only) ============ //
+function setupRangeSlider(productsGridElement) {
+  const rangeSlider = document.querySelector(".range-slider");
+  const priceInputEnd = document.querySelector(".price-input-end");
+  const products = getProducts();
+  let filtersProducts = [];
+  if (rangeSlider && priceInputEnd) {
+    rangeSlider.addEventListener("input", () => {
+      priceInputEnd.value = rangeSlider.value;
+    });
+    rangeSlider.addEventListener("change", () => {
+      productsGridElement.innerHTML ='';
+      filtersProducts = products.filter((product)=> product.price < Number(rangeSlider.value));
+      displayProductsElement(filtersProducts,productsGridElement)
+      
+    });
+  }
 }
 
-// 
+// ============ CLEAR ALL FILTERS ============ //
+function setupClearAll() {
+  const clearBtn = document.querySelector('.clear-btn');
+
+  if (!clearBtn) return;
+
+  clearBtn.addEventListener('click', function () {
+    const range = document.querySelector(".range-slider");
+    const priceEnd = document.querySelector(".price-input-end");
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
+    if (range) range.value = '0';
+    if (priceEnd) priceEnd.value = '34000';
+
+    checkboxes.forEach((check) => (check.checked = false));
+  });
+}
