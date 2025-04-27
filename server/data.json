@@ -182,6 +182,50 @@
       "totalProducts": 1,
       "totalQuantity": 3,
       "id": "Pu1LvN-"
+    },
+    {
+      "id": 1745739347190,
+      "products": [
+        {
+          "productId": 8,
+          "title": "Dior J'adore",
+          "price": 89.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
+          "quantity": 1
+        },
+        {
+          "productId": 9,
+          "title": "Dolce Shine Eau de",
+          "price": 69.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png",
+          "quantity": 1
+        },
+        {
+          "productId": 7,
+          "title": "Chanel Coco Noir Eau De",
+          "price": 129.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+          "quantity": 7
+        }
+      ],
+      "totalPrice": 1069.91,
+      "totalProducts": 3,
+      "totalQuantity": 9
+    },
+    {
+      "id": 1745714718288,
+      "products": [
+        {
+          "productId": 2,
+          "title": "Eyeshadow Palette with Mirror",
+          "price": 19.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+          "quantity": 6
+        }
+      ],
+      "totalPrice": 119.94,
+      "totalProducts": 1,
+      "totalQuantity": -2
     }
   ]
 }
