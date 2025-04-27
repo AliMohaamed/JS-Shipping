@@ -1,3 +1,5 @@
+import { showCustomAlert } from "./custom/alert.js";
+import { generateStarRating } from "./custom/generateStarRating.js";
 import { fetchAddOrUpdateCart } from "./fetchData.js";
 import { CartUI } from "./services/CartUI.js";
 
@@ -151,4 +153,40 @@ function svgDelete() {
         <line x1="10" x2="10" y1="11" y2="17" />
         <line x1="14" x2="14" y1="11" y2="17" />
     </svg>`;
+}
+document.querySelector(".checkout-btn").addEventListener("click", checkout);
+function checkout() {
+  if (!JSON.parse(localStorage.getItem("user"))) {
+    showCustomAlert(
+      "warning",
+      "Warning!",
+      "Please log in to checkout.",
+      5000,
+      "top-right"
+    );
+    return;
+  } else {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart || !cart.products.length) {
+      showCustomAlert(
+        "warning",
+        "Warning!",
+        "Your cart is empty.",
+        5000,
+        "top-right"
+      );
+      location.href = './../pages/login.html';
+      return;
+    }
+
+    showCustomAlert(
+      "success",
+      "Success!",
+      "Order is submitted",
+      5000,
+      "top-right"
+    );
+    localStorage.removeItem("cart");
+    location.href = "./../index.html";
+  }
 }

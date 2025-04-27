@@ -64,7 +64,7 @@ btnSubmitSignUp?.addEventListener("click", async (e) => {
     // add user in db
     await signUpUser(user);
 
-    location.href = "../pages/login.html";
+    location.replace("../pages/login.html");
   } else {
     console.log("User already founded");
     showCustomAlert(
@@ -103,7 +103,7 @@ btnSubmitLogin?.addEventListener("click", async (e) => {
     const cart = JSON.parse(localStorage.getItem("cart"));
     if (cart) await fetchAddOrUpdateCart(cart);
     console.log(cart);
-    location.href = "./../index.html";
+    location.replace("./../index.html")
     return;
   } else {
     console.log("Login failed");

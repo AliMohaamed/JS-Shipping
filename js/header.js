@@ -13,15 +13,22 @@ fetch("../components/header/header.html")
     displayCategoriesHeader();
     // Auth
     const isLoggedUser = JSON.parse(localStorage.getItem("user"));
+    const userName = document.querySelector(".username");
     authHeader.textContent = isLoggedUser ? "Logout" : "Login";
-
+    userName.textContent = isLoggedUser ? `Hi ${isLoggedUser.name}` : "";
+    console.log(userName);
+    console.log(userName.textContent);
     authHeader.addEventListener("click", function (e) {
       e.preventDefault();
       if (isLoggedUser) {
         // logout
         localStorage.removeItem("user");
+
         location.reload();
       } else {
+        
+        
+
         location.href = "../pages/login.html";
       }
     });

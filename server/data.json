@@ -7,12 +7,6 @@
       "password": "Aa@123456"
     },
     {
-      "name": "Codk Academy",
-      "email": "alihoms9083@gmail.com",
-      "password": "Ali@12345",
-      "id": "hDrp6U9"
-    },
-    {
       "name": "ali",
       "email": "ali@top.js",
       "password": "Aa@123456",
@@ -226,6 +220,21 @@
       "totalPrice": 119.94,
       "totalProducts": 1,
       "totalQuantity": -2
+    },
+    {
+      "id": 1745741209186,
+      "products": [
+        {
+          "productId": 3,
+          "title": "Powder Canister",
+          "price": 14.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 29.980000000000032,
+      "totalProducts": 1,
+      "totalQuantity": 1
     }
   ]
 }

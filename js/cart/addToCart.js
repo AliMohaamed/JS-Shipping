@@ -3,7 +3,6 @@
 import { CartManager } from "../services/CartManager.js";
 import { showCustomAlert } from "../custom/alert.js";
 
-const MAX_QUANTITY = 10;
 
 export async function addToCart(products, productsGrid) {
   if (!productsGrid) {

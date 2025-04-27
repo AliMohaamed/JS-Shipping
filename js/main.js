@@ -10,12 +10,15 @@ import {
 import { displayProducts } from "./products/products.js";
 import { setupProductNavigation } from "./utils/productNavigation.js";
 import { addToCart } from "./cart/addToCart.js";
+import { backToTop } from "./custom/bactToTop.js";
 
 const categoryGrid = document.querySelector(".category-grid");
 const productsGrid = document.querySelector(".products-grid");
 document.addEventListener("DOMContentLoaded", async function () {
   // Run all needed features
   initSlider();
+  // Back to Top Button Functionality
+  backToTop()
   await initApp();
   let products = getProducts();
   addToCart(products, productsGrid);
