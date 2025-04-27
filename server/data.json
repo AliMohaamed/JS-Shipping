@@ -113,6 +113,75 @@
       "totalPrice": 37372.899999999994,
       "totalProducts": 7,
       "totalQuantity": 7
+    },
+    {
+      "products": [
+        {
+          "productId": 8,
+          "title": "Dior J'adore",
+          "price": 89.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
+          "quantity": 1
+        },
+        {
+          "productId": 6,
+          "title": "Calvin Klein CK One",
+          "price": 49.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
+          "quantity": 2
+        },
+        {
+          "productId": 1,
+          "title": "Essence Mascara Lash Princess",
+          "price": 9.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "quantity": 4
+        }
+      ],
+      "userId": "c31d",
+      "totalPrice": 229.94000000000003,
+      "totalProducts": 3,
+      "totalQuantity": 6,
+      "id": "uyDY_Bm"
+    },
+    {
+      "products": [
+        {
+          "productId": 6,
+          "title": "Calvin Klein CK One",
+          "price": 49.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
+          "quantity": 2
+        },
+        {
+          "productId": 1,
+          "title": "Essence Mascara Lash Princess",
+          "price": 9.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "quantity": 4
+        }
+      ],
+      "userId": "c31d",
+      "totalPrice": 139.95000000000005,
+      "totalProducts": 2,
+      "totalQuantity": 5,
+      "id": "Xy6ZpAO"
+    },
+    {
+      "products": [
+        {
+          "productId": 1,
+          "title": "Essence Mascara Lash Princess",
+          "price": 9.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "quantity": 4
+        }
+      ],
+      "userId": "c31d",
+      "totalPrice": 39.97000000000004,
+      "totalProducts": 1,
+      "totalQuantity": 3,
+      "id": "Pu1LvN-"
     }
   ]
 }
