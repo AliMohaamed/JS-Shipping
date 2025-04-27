@@ -1,7 +1,11 @@
 import { showCustomAlert } from "../custom/alert.js";
 import { generateStarRating } from "../custom/generateStarRating.js";
 import { loadProductById, getProductById } from "./../dataLoader.js";
+import { CartManager } from "../services/CartManager.js";
+
 let product = {};
+const cartManager = new CartManager();
+
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
@@ -13,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   displayProduct(product);
   // Initialize quantity controls
   setupQuantityControls();
+  setupAddToCartButton();
   // Products
   console.log(getProductById(productId));
 });
@@ -35,10 +40,10 @@ function displayProduct(product) {
   productDetailsContainer.innerHTML = "";
   const html = `
         <div class="product-details-gallery">
-          <di v class="product-details-main-image">
+          <div class="product-details-main-image">
               <img src="${product.images[0]}" alt="${product.title}">
               <!-- <div class="fullscreen-icon">⤢</div> -->
-          </di>
+          </div>
           <div class="thumbnail-container">
               <div class="thumbnail active">
                   <img src="${product.thumbnail}" alt="iMac front view">
@@ -54,7 +59,9 @@ function displayProduct(product) {
                 ${generateStarRating(product.rating)}
               </div>
               <div class="review-container">
-              <span class="review-count">(${product.reviews.length} customer reviews)</span>
+              <span class="review-count">(${
+                product.reviews.length
+              } customer reviews)</span>
               
               <div class="stock-status ${stock(product.stock)}">
                   <div class="stock-icon ${stock(product.stock)}-icon"></div>
@@ -65,8 +72,13 @@ function displayProduct(product) {
           
           <div class="price-container">
               <span class="price">Price: $${product.price}</span>
-              <span class="old-price">$${(product.price / (1 - product.discountPercentage / 100)).toFixed(2)}</span>
-              <span class="discount-badge">${Math.floor(product.discountPercentage)}% OFF</span>
+              <span class="old-price">$${(
+                product.price /
+                (1 - product.discountPercentage / 100)
+              ).toFixed(2)}</span>
+              <span class="discount-badge">${Math.floor(
+                product.discountPercentage
+              )}% OFF</span>
           </div>
           
           <div class="delivery-info">
@@ -76,7 +88,9 @@ function displayProduct(product) {
               </div>
               <div class="info-item">
                   <div class="info-icon"></div>
-                  Sales ${Math.floor(product.discountPercentage)}% Off Use Code: PROMO30
+                  Sales ${Math.floor(
+                    product.discountPercentage
+                  )}% Off Use Code: PROMO30
               </div>
           </div>
 
@@ -88,36 +102,66 @@ function displayProduct(product) {
           
           <div class="buttons-container">
               <button class="purchase-btn">Purchase Now</button>
-              <button class="cart-btn">Add to Cart</button>
+              <button class="cart-btn" data-product-id="${
+                product.id
+              }">Add to Cart</button>
           </div>
       </div>
   `;
-  productDetailsContainer.insertAdjacentHTML('beforeend',html);
+  productDetailsContainer.insertAdjacentHTML("beforeend", html);
 }
 
 function stock(stockNumber) {
-  if (stockNumber > 5) 
-    return "in"
-  else if(stockNumber > 3) return "warning"
-  else if(stockNumber <= 0) return "out"
+  if (stockNumber > 5) return "in";
+  else if (stockNumber > 3) return "warning";
+  else if (stockNumber <= 0) return "out";
 }
 
-
 function setupQuantityControls() {
-  
-  const quantityInput = document.querySelector('.quantity-input');
-  const plusBtn = document.querySelector('.quantity-btn-plus');
-  const minusBtn = document.querySelector('.quantity-btn-negative');
+  const quantityInput = document.querySelector(".quantity-input");
+  const plusBtn = document.querySelector(".quantity-btn-plus");
+  const minusBtn = document.querySelector(".quantity-btn-negative");
 
   function handleQuantityChange(e) {
-    const isIncrement = e.currentTarget.classList.contains('quantity-btn-plus');
+    const isIncrement = e.currentTarget.classList.contains("quantity-btn-plus");
     let value = Number(quantityInput.value);
-    
+
     value = isIncrement ? value + 1 : Math.max(1, value - 1);
     quantityInput.value = value;
-    quantityInput.dispatchEvent(new Event('change'));
+    quantityInput.dispatchEvent(new Event("change"));
   }
 
-  plusBtn.addEventListener('click', handleQuantityChange);
-  minusBtn.addEventListener('click', handleQuantityChange);
+  plusBtn.addEventListener("click", handleQuantityChange);
+  minusBtn.addEventListener("click", handleQuantityChange);
+}
+
+function setupAddToCartButton() {
+  const addToCartBtn = document.querySelector(".cart-btn");
+  const quantityInput = document.querySelector(".quantity-input");
+
+  addToCartBtn.addEventListener("click", () => {
+    const quantity = Number(quantityInput.value);
+
+    // Add the product to cart with the selected quantity
+    for (let i = 0; i < quantity; i++) {
+      if (!cartManager.addProduct(product)) {
+        showCustomAlert(
+          "warning",
+          "Cart",
+          "Maximum quantity (10) reached for this product",
+          3000,
+          "top-right"
+        );
+        return;
+      }
+    }
+
+    showCustomAlert(
+      "success",
+      "Success!",
+      `Added ${quantity} item(s) to cart`,
+      3000,
+      "top-right"
+    );
+  });
 }

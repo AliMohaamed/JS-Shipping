@@ -24,23 +24,16 @@
       "id": "c31d",
       "products": [
         {
-          "productId": 6,
-          "title": "Calvin Klein CK One",
-          "price": 49.99,
-          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png",
-          "quantity": 3
-        },
-        {
-          "productId": 11,
-          "title": "Annibale Colombo Bed",
-          "price": 1899.99,
-          "thumbnail": "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
-          "quantity": 3
+          "productId": 7,
+          "title": "Chanel Coco Noir Eau De",
+          "price": 129.99,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png",
+          "quantity": 4
         }
       ],
-      "totalPrice": 5829.95,
-      "totalProducts": 2,
-      "totalQuantity": 1
+      "totalPrice": 519.96,
+      "totalProducts": 1,
+      "totalQuantity": 4
     },
     {
       "id": "EwFIAMx",
