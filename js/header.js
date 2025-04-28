@@ -15,7 +15,7 @@ fetch("../components/header/header.html")
     const isLoggedUser = JSON.parse(localStorage.getItem("user"));
     const userName = document.querySelector(".username");
     authHeader.textContent = isLoggedUser ? "Logout" : "Login";
-    userName.textContent = isLoggedUser ? `Hi ${isLoggedUser.name}` : "";
+    userName.textContent = isLoggedUser ? `Hi ${isLoggedUser.name.split(" ")[0]}` : "Hi Guest";     
     console.log(userName);
     console.log(userName.textContent);
     authHeader.addEventListener("click", function (e) {
@@ -23,12 +23,9 @@ fetch("../components/header/header.html")
       if (isLoggedUser) {
         // logout
         localStorage.removeItem("user");
-
         location.reload();
       } else {
-        
-        
-
+        // login
         location.href = "../pages/login.html";
       }
     });
