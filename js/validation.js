@@ -60,8 +60,7 @@ export function validatePassword(pass) {
   if (pass.length === 0) return "Password is required";
   else if (pass.length < 8) return "Password must be 8 chars at least";
   else if (!regExp.test(pass))
-    return `Password must contain at least one lowercase letter [a-z], one uppercase letter [A-Z], one number [0-9], and one special character (e.g., !@#$%^&*).
-`;
+    return "Password must including uppercase, lowercase, numbers, and special characters ";
 }
 
 export function validateConfirmPassword(confirmPassword, originalPassword) {

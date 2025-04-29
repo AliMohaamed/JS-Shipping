@@ -1,6 +1,6 @@
 # JS E-Commerce Website
 
-![E-Commerce Website Banner](https://via.placeholder.com/1200x300)
+![E-Commerce Website Banner](./assets/icons/Logo%20(6).svg)
 
 A fully functional, responsive e-commerce website built with pure HTML, CSS, and Vanilla JavaScript. This project demonstrates modern front-end development techniques without relying on frameworks, showcasing modular code organization and API integration.
 

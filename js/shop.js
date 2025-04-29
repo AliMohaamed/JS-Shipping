@@ -57,8 +57,7 @@ function sortProducts() {
     } else if (sortSelect.value === "rating") {
       await displayProductsSorted(productsGrid, "rating", "desc");
       products = getProductsSorted();
-    } 
-    
+    }
 
     addToCart(products, productsGrid);
     sortDependStocks(products, productsGrid);
@@ -123,7 +122,7 @@ async function filterProductsByCategory() {
     checkbox.addEventListener("change", async function (e) {
       const categorySlug = e.target.parentElement.dataset.categorySlug;
       const isChecked = e.target.checked;
-      if(!isChecked) return;
+      if (!isChecked) return;
       await loadProductsByCategoryName(categorySlug);
       const filteredProducts = getProductsByCategoryName();
       productsGridElement.innerHTML = "";
@@ -134,9 +133,8 @@ async function filterProductsByCategory() {
           check.checked = false;
         }
       });
-
     });
-})
+  });
 }
 
 // ============ DISPLAY CATEGORIES ============ //
